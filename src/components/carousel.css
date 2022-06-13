@@ -1,0 +1,65 @@
+.container {
+    
+    width:100%;
+    position: relative;
+    justify-content: space-between;
+    left:0;
+  
+  }
+
+.section_text_cont {
+    color:#E3E3E3;
+    margin-bottom: 1rem;
+}
+
+.item {
+    max-height: 21rem;
+    max-width: 16rem;
+    min-height: 21rem;
+    min-width: 16rem;
+    padding-right: 2rem;
+    padding-top:1rem;
+    padding-bottom: 1rem;
+    
+}
+
+.item img {
+    object-fit:cover;
+    height :100%;
+    width:100%;
+    border-radius: 0.5rem;
+    pointer-events: none;
+}
+
+.carousel {
+    display: flex;
+}
+
+.carousel_container {
+
+    display:flex;
+    width: 100%;
+    cursor:grab;
+    overflow:hidden;
+    
+
+}
+
+@media screen and (max-width: 960px) {
+.container  {
+    height:auto;
+    padding-top:0.5rem;
+}
+    
+.item {
+    max-height: 14rem;
+    max-width: 10rem;
+    min-height: 14rem;
+    min-width: 10rem;
+}
+    
+   
+}
+
+  
+  
