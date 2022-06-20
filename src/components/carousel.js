@@ -18,16 +18,18 @@ function Slider() {
       setWidth(slider.current.scrollWidth - slider.current.offsetWidth);
     }, []); 
   return (
+    
     <motion.div className='container'>
       <div className='section_text_cont'>
       <h2>Check our newest series: </h2>
       </div>
     <motion.div ref={slider} className='carousel_container' whileTap={{cursor:"grabbing"}} >
         <motion.div  drag="x" dragConstraints={{right:0, left: -width }} className='carousel' >
-                {images.map((image) => {
+                {images[1].map((item) => {
                     return(
-                        <motion.div  className='item' key={image}>
-                <img src={image} alt="cannot display"/>
+                        <motion.div  className='item' key={item.id}>
+                <img src={item.mainimage} alt="cannot display"/>
+                <div className='title'>{item.title}</div>
                 </motion.div>
                 );
                 })}
