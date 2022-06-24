@@ -1,5 +1,6 @@
 {
-  "name": "xweb",
+  "name": "hxademo",
+  "homepage": "http://hxademo.atspace.tv",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

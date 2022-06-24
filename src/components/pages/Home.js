@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../App.css'
-import Hero from '../Hero';
-import Content from '../Content';
+import Hero from '../maincomponents/Hero';
+import Content from '../maincomponents/Content';
 
 
 function Home() {

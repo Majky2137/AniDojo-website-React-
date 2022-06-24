@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
-import './carousel.css';
+import './css/carousel.css';
 import {motion} from 'framer-motion';
 import {useRef, useState, useEffect} from 'react';
-import images from './images';
+import mainbase from '../data/anibase';
 
 
 
@@ -25,7 +25,7 @@ function Slider() {
       </div>
     <motion.div ref={slider} className='carousel_container' whileTap={{cursor:"grabbing"}} >
         <motion.div  drag="x" dragConstraints={{right:0, left: -width }} className='carousel' >
-                {images[1].map((item) => {
+                {mainbase[1].map((item) => {
                     return(
                         <motion.div  className='item' key={item.id}>
                 <img src={item.mainimage} alt="cannot display"/>
