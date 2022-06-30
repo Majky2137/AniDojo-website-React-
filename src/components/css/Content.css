@@ -383,7 +383,7 @@
 }
 }
 
-@media (max-width: 760px){
+@media screen and (max-width: 960px){
 .results {
     grid-template-rows: 8rem 8rem ;
     grid-gap: 14px 7px;

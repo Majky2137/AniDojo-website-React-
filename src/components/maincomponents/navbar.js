@@ -40,6 +40,11 @@ const showButton = () => {
                  </NavLink>
             </li>
             <li className='nav-item'>
+                <NavLink to='/Anitem'  className='nav-links' onClick={CloseMenuclick}>
+                    Anime item preview
+                 </NavLink>
+            </li>
+            <li className='nav-item'>
                 <NavLink to='/Search' className='nav-links'  onClick={CloseMenuclick}>
                     Search
                  </NavLink>

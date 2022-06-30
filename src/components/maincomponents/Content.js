@@ -3,6 +3,7 @@ import '../../App.css';
 import '../css/Content.css';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
+import { Link } from 'react-router-dom';
 
 
 function Content() {
@@ -15,6 +16,7 @@ function Content() {
     <div className='results'>
               {mainbase[0].map((item) => {
                     return(
+                   
     <div  className='card' key={item.id}>
        <div className='overlay'></div>
       <img src={item.mainimage} alt="cannot display"/>
