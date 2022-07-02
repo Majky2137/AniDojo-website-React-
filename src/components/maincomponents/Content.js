@@ -16,15 +16,14 @@ function Content() {
     <div className='results'>
               {mainbase[0].map((item) => {
                     return(
-                   
-    <div  className='card' key={item.id}>
+        <Link className='card' key={item.id} to="/anime" state={item}>        
        <div className='overlay'></div>
       <img src={item.mainimage} alt="cannot display"/>
      <div className='info'>
       <h3>{item.title}</h3>
       <p>{item.description}</p>
       </div>
-   </div>
+   </Link>  
  );
  })}
   </div>
@@ -33,7 +32,7 @@ function Content() {
                   <p>Anime Categories</p>
   </div>
   <div className='categories'>
-  {mainbase[2].map((item) => {
+  {mainbase[1].map((item) => {
                     return(
     <div className='cat_item_cont'>
       <div className='cat_item'>

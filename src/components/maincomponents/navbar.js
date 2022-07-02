@@ -35,13 +35,8 @@ const showButton = () => {
         </div>
         <ul className={click? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-                <NavLink exact  className='nav-links'  to='/' onClick={CloseMenuclick}>
+                <NavLink className='nav-links'  to='/home' onClick={CloseMenuclick}>
                     Home
-                 </NavLink>
-            </li>
-            <li className='nav-item'>
-                <NavLink to='/Anitem'  className='nav-links' onClick={CloseMenuclick}>
-                    Anime item preview
                  </NavLink>
             </li>
             <li className='nav-item'>
