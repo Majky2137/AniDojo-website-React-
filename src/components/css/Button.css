@@ -1,5 +1,5 @@
 :root {
-    --primary:rebeccapurple;
+    --primary:#02b97f;
 }
 
 .btn {
@@ -22,7 +22,7 @@
     color:#fff;
     padding: 8px 10px;
     transition: all 0.3s easy-out;
-    border: 1px solid rebeccapurple;
+    border: 1px solid #02b97f;
 }
 
 .btn--medium {
@@ -41,6 +41,6 @@
   .btn--medium:hover {
     transition: all 0.3s ease-out;
     background:#E3E3E3;
-    color: rebeccapurple;
+    color: #02b97f;
     transition: 250ms;
   }

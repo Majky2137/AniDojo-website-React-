@@ -9,8 +9,6 @@
     position: relative;
     margin:0;
     z-index: 999;
-
-  
   }
   
   .navbar-container {
@@ -59,7 +57,7 @@
   }
 
   .is-active {
-    border-bottom: 4px solid rebeccapurple;
+    border-bottom: 4px solid #02b97f;
   }
   
   .nav-links {
@@ -73,13 +71,13 @@
   }
   
   .nav-links:hover {
-    border-bottom: 4px solid rebeccapurple;
+    border-bottom: 4px solid #02b97f;
     transition: all 0.2s ease-out;
     
   }
   
   .fa-bars {
-    color: rebeccapurple;
+    color: #02b97f;
   }
   
   .nav-links-mobile {
@@ -97,7 +95,6 @@
     }
     .navbar{
       position:sticky;
-      background: #1E2029;
       overflow: hidden;
     }
     .nav-item {
@@ -142,7 +139,7 @@
     }
   
     .nav-links:hover {
-      background-color: rebeccapurple;
+      background-color: #02b97f;
       color: #242424;
       border-radius: 0;
     }
@@ -186,7 +183,7 @@
     }
   
     .nav-links-mobile:hover {
-      background: rebeccapurple;
+      background: #02b97f;
       color: #242424;
       transition: 250ms;
     }

@@ -4,7 +4,7 @@ import '../../App.css';
 import '../css/Item_anime.css';
 import NavBar from './navbar';
 import ModalVideo from 'react-modal-video'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';

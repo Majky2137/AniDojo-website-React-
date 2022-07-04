@@ -35,7 +35,7 @@ const showButton = () => {
         </div>
         <ul className={click? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-                <NavLink className='nav-links'  to='/home' onClick={CloseMenuclick}>
+                <NavLink className='nav-links'  to='/' onClick={CloseMenuclick}>
                     Home
                  </NavLink>
             </li>

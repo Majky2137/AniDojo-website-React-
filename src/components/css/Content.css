@@ -19,13 +19,13 @@
 }
 
 .header-title-info p {
-    font-size: 1.7rem;
+    font-size: 26px;
     font-weight: 550;
     margin: 0;
     color:#E3E3E3;
     font-family: 'Poppins';
     text-transform: uppercase;
-    border-bottom: 4px solid rebeccapurple;
+    border-bottom: 4px solid #02b97f;
 }
 
 .results {
@@ -53,12 +53,15 @@
 
 .card .info {
     position: absolute;
-    bottom: 1.5em;
-    font-size: 1.2rem;
-    font-weight: 550;
-    padding:0.8em;
+    bottom: 0;
+    left:0;
+    font-size: 20px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-bottom:13px;
     z-index:7;
     width: 100%;
+    max-height: 30%;
     opacity:0.5;
     overflow: hidden;
     color:#E3E3E3;
@@ -86,7 +89,7 @@
   }
 
 .card:hover {
-    box-shadow: 0 0 40px rebeccapurple;
+    box-shadow: 0 0 40px #02b97f;
     cursor: pointer;
   }
 
@@ -125,7 +128,7 @@
 
 .overlay {
     background-color: #1E2029;
-    filter:opacity(0.48);
+    filter:opacity(0.38);
     position: absolute;
     height: 100%; 
     width:100%;
@@ -137,7 +140,7 @@
 
 .overlay_gray {
     background-color: #1E2029;
-    filter:opacity(0.48);
+    filter:opacity(0.38);
     position: absolute;
     height: 100%; 
     width:100%;
@@ -179,7 +182,7 @@
 }
 
 .categories .cat_item {
-    background-color: rebeccapurple;
+    background-color: #02b97f;
     max-width:7.2rem;
     max-height: 7.2rem;
     overflow: hidden;
@@ -264,7 +267,7 @@
   }
 
 .manga .card:hover {
-    box-shadow: 0 0 40px rebeccapurple;
+    box-shadow: 0 0 40px #02b97f;
     cursor: pointer;
   }
 
@@ -277,6 +280,7 @@
     width: 100%;
     z-index: 5;
     object-fit: cover;
+    
 }
 
 .manga .card:nth-child(1) {
@@ -342,9 +346,7 @@
     border-radius: 0.5rem;
 }
 
-.header-title-info p {
-    font-size: 1.2rem;
-}
+
 
 .header-title-info {
     padding-left: 1.8rem;
@@ -479,7 +481,7 @@
 
 
 .header-title-info p {
-    font-size: 0.9rem;
+    font-size: 16px;
 }
 
 .header-title-info {
@@ -492,13 +494,11 @@
 }
 
 .card .info {
-    position: absolute;
-    bottom: 1em;
-    font-size: 0.7rem;
-    font-weight: 550;
-    padding:0.5em;
-    opacity:1;
-    
+    font-size: 11px;
+    padding-left:8px;
+    padding-right:8px;
+    padding-bottom:10px;
+    opacity:1; 
   }
 
 .categories {

@@ -36,11 +36,11 @@
 
 .overlay2 {
     background-color: #1E2029;
-    filter:opacity(0.60);
-    -o-filter:opacity(0.60);
-    -ms-filter:opacity(0.60);
-    -moz-filter:opacity(0.60);
-    -webkit-filter:opacity(0.60);
+    filter:opacity(0.55);
+    -o-filter:opacity(0.55);
+    -ms-filter:opacity(0.55);
+    -moz-filter:opacity(0.55);
+    -webkit-filter:opacity(0.55);
     position: absolute;
     height: 100%; 
     width:100%;
@@ -98,7 +98,7 @@
     min-width:13rem;
     max-height: 18rem;
     max-width:13rem;
-    box-shadow: 0 0 20px #e3e3e386;
+    box-shadow: 0 0 20px #26262b;
 }
 .modal-video-close-btn {
     position: absolute;
@@ -108,7 +108,7 @@
     display: flex;
     max-width: 25px;
     max-height: 30px;
-    color:rebeccapurple
+    color:#02b97f;
   }
 
 .item_card img {
@@ -130,7 +130,7 @@
     transition: all 0.3s ease-in-out;
 }
 .overlay_card:hover{
-    box-shadow: 0 0 40px rebeccapurple;
+    box-shadow: 0 0 40px #02b97f;
 }
 
 .item_pv_button {
@@ -161,7 +161,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    background: rebeccapurple;
+    background: #03e89f;
     border-radius: 50%;
     cursor: pointer;
     animation: play-pulse 1300ms ease-out infinite;
@@ -175,7 +175,7 @@
     z-index: 3;
     width: 0;
     height: 0;
-    border-left: 32px solid #fff;
+    border-left: 32px solid white;
 	border-top: 22px solid transparent;
 	border-bottom: 22px solid transparent;
     cursor: pointer;
@@ -243,9 +243,9 @@
     cursor: pointer;
 }
 .item_save i:hover {
-    color: rebeccapurple;
+    color: #02b97f;
     font-weight: 600;
-    box-shadow: 0 0 20px rebeccapurple;
+    box-shadow: 0 0 20px #02b97f;
 }
 .grey{
     color: rgb(150, 35, 35);
@@ -270,7 +270,7 @@
     color:#E3E3E3;
     margin-right: 8px;
     padding-right:0.5rem;
-    border-right: 2.7px solid rebeccapurple;
+    border-right: 2.7px solid #02b97f;
     font-family: 'Poppins';
 }
 
@@ -297,29 +297,30 @@
     flex-direction: column;
     position: relative;
     display: flexbox;
-    margin-bottom:40px;
+    
   }
   
 .item_details th, td {
     padding-top: 1.5em;
     padding-right: 10em;
-  
   }
 
 .item_summary {
     position: relative; 
+    display: block;
     max-width: 95%;
-    padding-bottom: 3rem;
-    padding-top: 3rem;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
+    
 }
 
 .item_summary h1 {
     font-size: 30px;
     font-weight: 580;
-    color:#E3E3E3;
+    color:#02b97f;
     font-family: 'Poppins';
-    margin-bottom: 10px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    
     
 }
 .item_summary p {
@@ -365,7 +366,7 @@
     align-self: flex-start;
     flex-direction: column;
     padding-left:0.5rem;
-    border-left: 3.7px solid rebeccapurple;
+    border-left: 3.7px solid #02b97f;
     margin-bottom: 40px;
     width:60%;
 }
@@ -397,7 +398,7 @@
     padding-left:0.5rem;
      padding-top:1px;
     padding-bottom:2.5px;
-    border-left: 3.7px solid rebeccapurple;
+    border-left: 3.7px solid #02b97f;
 }
 
 .item_tags h1 {
@@ -420,7 +421,7 @@
 @media screen and (max-width: 960px){
     .item_container {
         background: #1E2029;
-        max-height: auto;
+        height: auto;
     }
     .items_main {
         flex-direction: column;
@@ -442,18 +443,23 @@
         align-self: center;
         max-height: 25vh;
         min-height: 25vh;
+        margin-bottom: 10px;
+        margin-top: 70px;
+     
  
     }
     .item_summary h1 {
         text-align: center;
+        padding-top:1rem;
+        padding-bottom:1rem;
     }
     .item_summary p {
         text-align: justify;
         width: 100%;
     }
     .item_right_content {
-        padding-left:3rem;
-        padding-right:3rem;
+        padding-left:2.5rem;
+        padding-right:2.5rem;
         align-self: center;
         padding-top: 2.5rem;
         width: 100%;
@@ -468,13 +474,16 @@
         display:flex;
     }
     .item_heading{
-        align-items: center;
-        justify-content: center;
+        align-self: center;
+     
         margin-left:0px;
     }
 
     .item_heading h1 {
         padding-right: 0rem;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
     }
  
     .item_save {
@@ -492,11 +501,14 @@
     .item_details{
         margin-left:0px;
         align-self: center;
+        text-align: center;
        justify-content: center;
+       margin-bottom: 10px;
+        margin-top: 10px;
     }
     .item_details table, td, th {  
-       padding-left: 2em;
-       padding-right: 2em;
+       padding-left: 3em;
+       padding-right: 3em;
        text-align: center;
        align-items: flex-start;
       }
@@ -526,6 +538,6 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rebeccapurple; 
+    background: #02b97f; 
   }
   

@@ -36,17 +36,19 @@
 
 .title {
     position: absolute;
-    bottom: 15px;
-    font-size: 1.2rem;
+    bottom:0;
+    left:0;
+    font-size: 18px;
     font-weight: 550;
-    left:5px;
+    padding-left:12px;
+    padding-bottom:10px;
     z-index:7;
     width: 100%;
     overflow: hidden;
     color:#E3E3E3;
     font-family: 'Lato', sans-serif;
+    max-height: 30%;
   }
-
 .carousel {
     display: flex;
 }
@@ -59,18 +61,7 @@
     overflow:hidden;
 }
 
-.title {
-    position: absolute;
-    bottom: 15px;
-    font-size: 1.2rem;
-    font-weight: 550;
-    padding:8px;
-    z-index:7;
-    width: 100%;
-    overflow: hidden;
-    color:#E3E3E3;
-    font-family: 'Lato', sans-serif;
-  }
+
 
 @media screen and (max-width: 960px) {
 .container  {
@@ -84,6 +75,12 @@
     min-height: 8rem;
     min-width: 12.5rem;
 }
+.title {
+    font-size: 15.5px;
+    padding-left:8px;
+    padding-bottom:10px;
+    max-height: 50%;
+  }
     
    
 }
