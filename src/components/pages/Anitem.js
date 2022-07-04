@@ -8,6 +8,7 @@ import mainbase from '../../data/anibase';
 
 
 function Anitem() {
+
   return (
       <>
       <Item_anime_heading/>

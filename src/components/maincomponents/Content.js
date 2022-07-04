@@ -4,21 +4,39 @@ import '../css/Content.css';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 
 function Content() {
+
+  const [appState, setAppState] = useState({
+    loading: false,
+    repos: null,
+  });
+
+  useEffect(() => {
+    setAppState({ loading: true });
+    const apiUrl = `http://localhost:80/xweb/PHP/URL_Checker?site=Home`;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((repos) => {
+        setAppState({ loading: false, repos: repos });
+      });
+  }, [setAppState]);
+
+  if(appState.loading == false && appState.repos != null){
+    let repos = appState.repos;
   return (
-    
 <div className='page_content'>
   <div className='header-title-info'>
                   <p>Trending</p>
   </div>
     <div className='results'>
-              {mainbase[0].map((item) => {
+              {repos.map((item) => {
                     return(
         <Link className='card' key={item.id} to="/anime" state={item}>        
        <div className='overlay'></div>
-      <img src={item.mainimage} alt="cannot display"/>
+      <img src={item.images} alt="cannot display"/>
      <div className='info'>
       <h3>{item.title}</h3>
       <p>{item.description}</p>
@@ -32,6 +50,7 @@ function Content() {
                   <p>Anime Categories</p>
   </div>
   <div className='categories'>
+    
   {mainbase[1].map((item) => {
                     return(
     <div className='cat_item_cont'>
@@ -63,6 +82,6 @@ function Content() {
 </div>
   );
 }
-
+}
 
 export default Content;

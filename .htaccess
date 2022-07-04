@@ -1,0 +1,11 @@
+
+# HTID:12322333: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:12322333:
+
+Header set Access-Control-Allow-Origin 'http://localhost:3000'
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^api/([0-9a-zA-Z_-]*)$ api.php?order_id=$1 [NC,L]

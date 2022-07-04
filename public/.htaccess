@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>
 
+  Header set Access-Control-Allow-Origin 'http://localhost:3000'
+
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]

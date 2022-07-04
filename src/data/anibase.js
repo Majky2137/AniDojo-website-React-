@@ -37,6 +37,7 @@ let mainbase = [
     thumbnail:'https://i.ibb.co/sVW4Nvh/bx5114-KJTQz9-AIm6-Wk.jpg',
     mainimage:'https://i.ibb.co/sVW4Nvh/bx5114-KJTQz9-AIm6-Wk.jpg',
     color:'#e4c993',
+    
     type:'TV Series',
 },
 

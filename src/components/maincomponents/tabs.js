@@ -1,13 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useParams } from 'react-router-dom';
 import '../css/Item_anime_main.css';
 
 function Item_tabs() {
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
   const [toggleState, setToggle] = useState(1);
 
   const initTab = (index) => {
     setToggle(index);
   };
+  const [appState, setAppState] = useState({
+    loading: false,
+    repos: null,
+  });
+  let id = data.id;
+  useEffect(() => {
+    setAppState({ loading: true });
+    const apiUrl = `http://localhost:80/xweb/PHP/URL_Checker?site=anime&id=`+id;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((repos) => {
+        setAppState({ loading: false, repos: repos });
+      });
+  }, [setAppState]);
 
+  if(appState.loading == false && appState.repos != null){
+    let repos = appState.repos;
+    console.log(repos);
   return (
     <div className="item_tabs_container">
       <div className="item_tabs">
@@ -26,71 +47,20 @@ function Item_tabs() {
         <div
           className={toggleState === 1 ? "items  active_item" : "items"}>
             <table>
+             {repos.map((item) => {
+                console.log(item)
+                    return(
+               <>
               <tr>
-                <th>Episode</th>
-                <th>Title</th>
-                <th>Time</th>
+               <td><iframe allowFullScreen={true} src={item.link} /> <th>{item.ep_nr} - {item.title}<th>Time[{item.episode_time}]</th></th>
+              </td>
+              
+               <tr>   
              </tr>
-              <tr>
-                <td>Episode 1</td>
-                <td>Intro</td>
-                <td>24 min</td>
              </tr>
-              <tr>
-                <td>Episode 2</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-               <tr>
-                <td>Episode 3</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-              <tr>
-                <td>Episode 4</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-              <tr>
-                <td>Episode 5</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-              <tr>
-                <td>Episode 6</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-              <tr>
-                <td>Episode 7</td>
-                <td>Intro</td>
-                <td>24 min</td>
-             </tr>
-              <tr>
-                <td>Episode 8</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-               <tr>
-                <td>Episode 9</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-              <tr>
-                <td>Episode 10</td>
-                <td>Intro</td>
-                <td>24 min</td>
-             </tr>
-              <tr>
-                <td>Episode 11</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
-               <tr>
-                <td>Episode 12</td>
-                <td>Intro</td>
-                <td>24 min</td>
-              </tr>
+             </>
+                    );
+                  })}
             </table>
         </div>
 
@@ -118,6 +88,7 @@ function Item_tabs() {
       </div>
     </div>
   );
+}
 }
 
 export default Item_tabs;

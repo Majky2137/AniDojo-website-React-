@@ -36,7 +36,7 @@ function Item_anime_heading() {
       <div className='item_container'>
         <div className='item_back_cont'/>
           <div className='overlay2'/>
-          <img className="item_back" src={data.mainimage} alt="bg"></img>
+          <img className="item_back" src={data.images} alt="bg"></img>
           <NavBar/>
         <div className='items_main'>
               <div className='item_left_content'>
@@ -66,7 +66,7 @@ function Item_anime_heading() {
              <table>
                 <tr>
                   <td>Studio</td>
-                  <td>{data.studio}</td>
+                  <td>{data.nazwa_studia}</td>
                 </tr>
                 <tr>
                   <td>Type</td>
@@ -113,7 +113,7 @@ function Item_anime_heading() {
               </div>
       
     </div>
-    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={data.video} onClose={() => setOpen(false)} />
+    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={data.pv} onClose={() => setOpen(false)} />
   </div>
 
 

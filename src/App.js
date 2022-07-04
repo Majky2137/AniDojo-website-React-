@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import $ from "jquery";
 import Home from './components/pages/Home';
 import Anitem from './components/pages/Anitem';
 import Item_anime_heading from './components/maincomponents/Item_anime_heading';
