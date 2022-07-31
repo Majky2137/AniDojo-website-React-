@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../../App.css';
 import '../css/Item_anime.css';
 import NavBar from './navbar';
@@ -9,14 +9,22 @@ import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import Home from '../pages/Home';
+import LoadData from '../loadData';
 
-function Item_anime_heading() {
-  const location = useLocation();
-  const data = location.state;
-  console.log(data);
+const Item_anime_heading = () =>  {
 
 
+  const { id } = useParams();
+  const [open, setOpen] = useState(false);
   
+  const [data, setData] = useState([]);
+  const getData = (async() => { const data = await LoadData('AnimeID', id); setData(data[0]); });
+  
+    useEffect(() => {
+        getData();
+    }, []);
+  
+  if(data != null && data != [] && data.pv){
   const FollowButton = () => {
     const [followed, setFollowed] = useState();
 
@@ -28,15 +36,11 @@ function Item_anime_heading() {
    </button>
    </div>
     )};
-
-    const [open, setOpen] = useState(false)
-
   return (
-
       <div className='item_container'>
         <div className='item_back_cont'/>
           <div className='overlay2'/>
-          <img className="item_back" src={data.images} alt="bg"></img>
+          <img className="item_back" src={data.banner} alt="bg"></img>
           <NavBar/>
         <div className='items_main'>
               <div className='item_left_content'>
@@ -47,7 +51,7 @@ function Item_anime_heading() {
                   <span></span>
                   </button>
                   </div>
-                  <img src={data.thumbnail} alt="bg"></img>
+                  <img src={data.cover} alt="bg"></img>
               </div>
              
             <div className='item_info'>
@@ -68,10 +72,6 @@ function Item_anime_heading() {
                   <td>Studio</td>
                   <td>{data.nazwa_studia}</td>
                 </tr>
-                <tr>
-                  <td>Type</td>
-                  <td>{data.type}</td>
-                 </tr>
                  <tr>
                   <td>Year</td>
                   <td>-</td>
@@ -113,11 +113,12 @@ function Item_anime_heading() {
               </div>
       
     </div>
-    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={data.pv} onClose={() => setOpen(false)} />
+    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={ data.pv.split("/")[4] } onClose={() => setOpen(false)} />
   </div>
 
 
   )
+}
 }
 
 export default Item_anime_heading;

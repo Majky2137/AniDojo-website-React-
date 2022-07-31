@@ -8,7 +8,7 @@ function Hero() {
   return (
     <div className='hero-container'>
       <div className='bg2'/>
-        <img className="bg" src="https://images2.alphacoders.com/118/1185030.jpg" alt="bg"></img>
+        <img className="bg" src="https://i.pinimg.com/originals/fd/ea/8b/fdea8b349bd204f911d7a8cc22058f14.jpg" alt="bg"></img>
         <NavBar/>
         <div className='Items'>
         <div className='text_container'>

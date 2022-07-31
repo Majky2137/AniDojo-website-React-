@@ -50,6 +50,7 @@
 }
 
 
+
 .items_main {
     position:relative;
     display:flex;
@@ -108,7 +109,7 @@
     display: flex;
     max-width: 25px;
     max-height: 30px;
-    color:#02b97f;
+    color:#BE4242;
   }
 
 .item_card img {
@@ -130,7 +131,7 @@
     transition: all 0.3s ease-in-out;
 }
 .overlay_card:hover{
-    box-shadow: 0 0 40px #02b97f;
+    box-shadow: 0 0 40px #BE4242;
 }
 
 .item_pv_button {
@@ -161,7 +162,7 @@
     display: block;
     width: 80px;
     height: 80px;
-    background: #03e89f;
+    background: #BE4242;
     border-radius: 50%;
     cursor: pointer;
     animation: play-pulse 1300ms ease-out infinite;
@@ -243,9 +244,9 @@
     cursor: pointer;
 }
 .item_save i:hover {
-    color: #02b97f;
+    color: #BE4242;
     font-weight: 600;
-    box-shadow: 0 0 20px #02b97f;
+    box-shadow: 0 0 20px #BE4242;
 }
 .grey{
     color: rgb(150, 35, 35);
@@ -270,7 +271,7 @@
     color:#E3E3E3;
     margin-right: 8px;
     padding-right:0.5rem;
-    border-right: 2.7px solid #02b97f;
+    border-right: 2.7px solid #BE4242;
     font-family: 'Poppins';
 }
 
@@ -316,7 +317,7 @@
 .item_summary h1 {
     font-size: 30px;
     font-weight: 580;
-    color:#02b97f;
+    color:rgb(212, 75, 75);
     font-family: 'Poppins';
     padding-bottom: 1rem;
     padding-top: 1rem;
@@ -366,7 +367,7 @@
     align-self: flex-start;
     flex-direction: column;
     padding-left:0.5rem;
-    border-left: 3.7px solid #02b97f;
+    border-left: 3.7px solid #BE4242;
     margin-bottom: 40px;
     width:60%;
 }
@@ -398,7 +399,7 @@
     padding-left:0.5rem;
      padding-top:1px;
     padding-bottom:2.5px;
-    border-left: 3.7px solid #02b97f;
+    border-left: 3.7px solid #BE4242;
 }
 
 .item_tags h1 {
@@ -538,6 +539,6 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #02b97f; 
+    background: #BE4242; 
   }
   

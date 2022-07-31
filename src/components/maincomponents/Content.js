@@ -1,42 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../../App.css';
 import '../css/Content.css';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
+import LoadData from '../loadData';
 
+const Content = () => {
 
-function Content() {
-
-  const [appState, setAppState] = useState({
-    loading: false,
-    repos: null,
-  });
+  const [data, setData] = useState([]);
+  const getData = (async() => { const data = await LoadData('Home');  setData(data); });
 
   useEffect(() => {
-    setAppState({ loading: true });
-    const apiUrl = `http://localhost:80/xweb/PHP/URL_Checker?site=Home`;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((repos) => {
-        setAppState({ loading: false, repos: repos });
-      });
-  }, [setAppState]);
+      getData();
+  }, []);
 
-  if(appState.loading == false && appState.repos != null){
-    let repos = appState.repos;
+
+
   return (
 <div className='page_content'>
   <div className='header-title-info'>
                   <p>Trending</p>
   </div>
     <div className='results'>
-              {repos.map((item) => {
+              {data.map((item) => {
                     return(
-        <Link className='card' key={item.id} to="/anime" state={item}>        
+        <Link className='card' key={item.id} to={`anime/${item.id}`} state={item}>        
        <div className='overlay'></div>
-      <img src={item.images} alt="cannot display"/>
+      <img src={item.cover} alt="cannot display"/>
      <div className='info'>
       <h3>{item.title}</h3>
       <p>{item.description}</p>
@@ -70,7 +62,7 @@ function Content() {
               {manga_base[0].map((item) => {
                     return(
     <div  className='card' key={item.id}>
-       <div className='overlay_gray'></div>
+       <div className='overlay'></div>
       <img src={item.mainimage} alt="cannot display"/>
      <div className='info'>
       <h3>{item.title}</h3>
@@ -81,7 +73,6 @@ function Content() {
   </div>
 </div>
   );
-}
 }
 
 export default Content;

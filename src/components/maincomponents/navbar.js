@@ -40,17 +40,17 @@ const showButton = () => {
                  </NavLink>
             </li>
             <li className='nav-item'>
-                <NavLink to='/Search' className='nav-links'  onClick={CloseMenuclick}>
+                <NavLink to='/search' className='nav-links'  onClick={CloseMenuclick}>
                     Search
                  </NavLink>
             </li>
             <li className='nav-item'>
-                <NavLink to='/Manga' className='nav-links'   onClick={CloseMenuclick}>
+                <NavLink to='/manga' className='nav-links'   onClick={CloseMenuclick}>
                     Manga List
                  </NavLink>
             </li>
             <li className='nav-item'>
-                <NavLink to='/Forum'  className='nav-links' onClick={CloseMenuclick}>
+                <NavLink to='/forum'  className='nav-links' onClick={CloseMenuclick}>
                     Forum
                  </NavLink>
             </li>

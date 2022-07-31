@@ -25,7 +25,7 @@
     color:#E3E3E3;
     font-family: 'Poppins';
     text-transform: uppercase;
-    border-bottom: 4px solid #02b97f;
+    border-bottom: 4px solid #BE4242;
 }
 
 .results {
@@ -45,7 +45,7 @@
 
 .results .card {
     position: relative;
-    border-radius: 1.05rem;
+    border-radius: 10px;
     margin:0;
     cursor:pointer;
     transition: all 0.3s ease-in-out;
@@ -89,12 +89,12 @@
   }
 
 .card:hover {
-    box-shadow: 0 0 40px #02b97f;
+    box-shadow: 0 0 40px #BE4242;
     cursor: pointer;
   }
 
 .card img {
-    border-radius: 1.05rem;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     overflow: hidden;
@@ -128,11 +128,11 @@
 
 .overlay {
     background-color: #1E2029;
-    filter:opacity(0.38);
+    filter:opacity(0.58);
     position: absolute;
     height: 100%; 
     width:100%;
-    border-radius: 1.05rem;
+    border-radius: 10px;
     top:0;
     left:0;
     z-index:1;
@@ -144,7 +144,7 @@
     position: absolute;
     height: 100%; 
     width:100%;
-    border-radius: 1.05rem;
+    border-radius: 10px;
     top:0;
     left:0;
     z-index:1;
@@ -182,11 +182,11 @@
 }
 
 .categories .cat_item {
-    background-color: #02b97f;
+    background-color: #BE4242;
     max-width:7.2rem;
     max-height: 7.2rem;
     overflow: hidden;
-    border-radius: 1.05rem;
+    border-radius: 10px;
 }
 
 .categories .cat_item img{
@@ -195,6 +195,7 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
+    border-radius: 10px;
     object-fit: cover;
 }
 
@@ -211,7 +212,7 @@
 
 .manga {
     padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
     display: grid;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -226,7 +227,7 @@
 
 .manga .card {
     position: relative;
-    border-radius: 1.05rem;
+    border-radius: 10px;
     margin:0;
     cursor:pointer;
     transition: all 0.3s ease-in-out;
@@ -267,12 +268,12 @@
   }
 
 .manga .card:hover {
-    box-shadow: 0 0 40px #02b97f;
+    box-shadow: 0 0 40px #BE4242;
     cursor: pointer;
   }
 
 .manga .card img {
-    border-radius: 1.05rem;
+    border-radius: 10px;
     cursor: pointer;
     display: flex;
     overflow: hidden;
@@ -327,11 +328,13 @@
     grid-gap: 25px 20px;
     justify-content: center; 
 }
+
 .manga {
     padding: 0 20px;
     grid-gap: 25px 20px;
     justify-content: center; 
     grid-template-rows: 20rem 14rem ;
+    padding-bottom: 1rem;
 }
 
 .manga .card {
@@ -502,30 +505,34 @@
   }
 
 .categories {
-    margin-top:0;
+    margin-top:15px;
     margin-bottom:15px;
     padding-top:0;
     padding-bottom: 0;
     padding-left: 24px;
     padding-right: 24px;
-    height: 12vh;
+    height: 15vh;
     overflow: hidden;
 }
 
 .categories .cat_item {
-    max-width:3.9rem;
-    max-height: 3.9rem;
-    margin-right: 10px;
+    max-width:4.9rem;
+    min-width:4.9rem;
+    max-height: 4.9rem;
+    min-height: 4.9rem;
+
 }
 
 .categories .cat_item_cont{
-    max-width:3.9rem;
-    max-height: 3.9rem;
-
+    max-width:4.9rem;
+    min-width:4.9rem;
+    max-height: 4.9rem;
+    min-height: 4.9rem;
+    margin-right: 10px;
 }
 
 .cat_title {
-    font-size: 0.55rem;
+    font-size: 12px;
 }
 
 
@@ -594,13 +601,22 @@
 }
     
 .categories .cat_item {
-    max-width:6rem;
-    max-height: 6rem;
-    margin-right: 10px;
+    max-width:6.3rem;
+    min-width:6.3rem;
+    max-height: 6.3rem;
+    min-height: 6.3rem;
+
 }
     
 .categories .cat_item_cont{
-    max-width:6rem;
-    max-height: 6rem;
+    max-width:6.3rem;
+    min-width:6.3rem;
+    min-height: 6.3rem;
+    max-height: 6.3rem;
+    margin-right: 10px;
 }
+.cat_title {
+    font-size: 15px;
+}
+
  }

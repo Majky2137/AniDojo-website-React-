@@ -6,8 +6,8 @@ let mainbase = [
         maintitle:'The Greatest Demon Lord Is Reborn as a Typical Nobody',
         status:'Airing',
         description:"As the most powerful entity of all time, the Demon Lord Varvatos thinks life is a big fat snore. When he takes matters into his own hands and decides to reincarnate, he calibrates his magical strength to be perfectly average. But there is no way he could have predicted that everyone in the modern world would be weak as hell, which means he is totally overpowered once again! Reborn under the name Ard, he has ladies fawning over him, the royal family begging him to become the next king, and an ex-minion insisting on killing him?! But Ard has a one-track mind, and he won't stop at anything to achieve his ultimate goal!\n\n(Source: Yen Press)",
-        thumbnail:'https://nanasubs.pl/images/anime/shijou-saikyou-no-daimaou-murabito-a-ni-tensei-suru.webp',
-        mainimage:'https://blog.tanuki.pl/wp-content/uploads/2022/04/Shijou-Saikyou-no-Daimaou_-02_15.23.005.jpg',
+        thumbnail:'https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/06/Demon-Slayer.jpg',
+        mainimage:'https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/06/Demon-Slayer.jpg',
         color:'#50bbe4',
         studio:'BLADE, Silver Link.',
         type:'TV Series',
@@ -82,6 +82,19 @@ let mainbase = [
     studio:'Undefinied',
     type:'TV Series',
 },
+{
+    id:'7',
+    video:'tYDDS0OzV_Q',
+    title:'Date A Live IV',
+    maintitle:'Date A Live IV',
+    status:'Airing',
+    description:"The fourth season of Date A Live",
+    thumbnail:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg',
+    mainimage:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg',
+    color:'#B0E0E6',
+    studio:'Undefinied',
+    type:'TV Series',
+},
 
 
 
@@ -131,6 +144,7 @@ let categories  = [
         title:'Ecchi',
         image:'https://i.ibb.co/jhTgH32/nx11617-nmx-MU9-Zh3-H5-R.jpg',
     },
+    
 
 
 

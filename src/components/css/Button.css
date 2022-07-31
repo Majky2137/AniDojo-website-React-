@@ -1,5 +1,5 @@
 :root {
-    --primary:#02b97f;
+    --primary:#BE4242;
 }
 
 .btn {
@@ -22,7 +22,7 @@
     color:#fff;
     padding: 8px 10px;
     transition: all 0.3s easy-out;
-    border: 1px solid #02b97f;
+    border: 1px solid #BE4242;
 }
 
 .btn--medium {
@@ -41,6 +41,6 @@
   .btn--medium:hover {
     transition: all 0.3s ease-out;
     background:#E3E3E3;
-    color: #02b97f;
+    color: #BE4242;
     transition: 250ms;
   }

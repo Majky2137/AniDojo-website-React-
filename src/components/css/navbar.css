@@ -7,30 +7,32 @@
     align-items: center;
     font-size: 1rem;
     position: relative;
+    padding-left: 11rem;
+    padding-right: 11rem;
     margin:0;
     z-index: 999;
   }
   
   .navbar-container {
     align-items: center;
+    background: #1e20292d;
   display: flex;
   flex-direction: row;
   height: 68px;
+  width: 100%;
   justify-content: center;
   position: relative;
-  
-  
   }
   
   .navbar-logo {
-    color: #E5E5E5;
+    color: #E3E3E3;
     justify-self: center;
     margin-left:24px;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .fa-typo3 {
@@ -44,8 +46,9 @@
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 80vw;
-    justify-content: center;
+    text-transform: uppercase;
+    width: 100%;
+    justify-content: flex-end;
     margin-right: 2rem;
     
     
@@ -57,7 +60,7 @@
   }
 
   .is-active {
-    border-bottom: 4px solid #02b97f;
+    border-bottom: 4px solid #BE4242;
   }
   
   .nav-links {
@@ -71,13 +74,13 @@
   }
   
   .nav-links:hover {
-    border-bottom: 4px solid #02b97f;
+    border-bottom: 4px solid #BE4242;
     transition: all 0.2s ease-out;
     
   }
   
   .fa-bars {
-    color: #02b97f;
+    color: #BE4242;
   }
   
   .nav-links-mobile {
@@ -96,6 +99,8 @@
     .navbar{
       position:sticky;
       overflow: hidden;
+      padding-left: 0.2rem;
+      padding-right: 0.2rem;
     }
     .nav-item {
       height: 80px;
@@ -113,7 +118,7 @@
       transform: translateX(100vw);
       transition: all 0.5s ease;
       overflow: hidden;
-     
+      justify-content: center;
     }
     .navbar-container {
       width:100%;
@@ -139,7 +144,7 @@
     }
   
     .nav-links:hover {
-      background-color: #02b97f;
+      background-color: #BE4242;
       color: #242424;
       border-radius: 0;
     }
@@ -163,6 +168,10 @@
     }
   
     .fa-times {
+      color: #BE4242;
+      font-size: 2rem;
+    }
+    .fa-bars {
       color: #fff;
       font-size: 2rem;
     }
@@ -183,7 +192,7 @@
     }
   
     .nav-links-mobile:hover {
-      background: #02b97f;
+      background: #BE4242;
       color: #242424;
       transition: 250ms;
     }

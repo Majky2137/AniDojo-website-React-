@@ -1,7 +1,7 @@
 
   .hero-container {
     background: #1E2029;
-    height: 101vh;
+    height: 95vh;
     width: 100%;
     flex:1;
     flex-wrap: wrap;
@@ -10,12 +10,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    object-fit: contain;
+    object-fit: cover;
     resize:both;
     margin-bottom:6rem;
-
- 
   }
+
+  
   .Items {
     position:relative;
     display:flex;
@@ -38,7 +38,7 @@
     z-index:1;
     align-items: flex-end;
     right: 0;
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
   }
   .text_container {
     display: flex;
@@ -94,8 +94,11 @@
     left:0;
     object-fit: cover;
     margin:0;
- 
-
+    background: no-repeat center center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;;
   }
 
   .bg2{
@@ -107,8 +110,6 @@
     top:0;
     left:0;
     z-index:1;
-    
-
   }
 
 
@@ -177,6 +178,11 @@
       margin-bottom:0;
       top:10%;
   }
+  }
+  @media  (max-width:1280px) and (orientation: landscape) {
+    .text_container{
+      padding-left: 11.5rem;
+    }
   }
  
 

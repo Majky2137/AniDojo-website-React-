@@ -1,34 +1,27 @@
 import { useState, useEffect } from "react";
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import '../css/Item_anime_main.css';
+import LoadData from '../loadData';
 
 function Item_tabs() {
-  const location = useLocation();
-  const data = location.state;
-  console.log(data);
+
   const [toggleState, setToggle] = useState(1);
 
   const initTab = (index) => {
     setToggle(index);
   };
-  const [appState, setAppState] = useState({
-    loading: false,
-    repos: null,
-  });
-  let id = data.id;
-  useEffect(() => {
-    setAppState({ loading: true });
-    const apiUrl = `http://localhost:80/xweb/PHP/URL_Checker?site=anime&id=`+id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((repos) => {
-        setAppState({ loading: false, repos: repos });
-      });
-  }, [setAppState]);
 
-  if(appState.loading == false && appState.repos != null){
-    let repos = appState.repos;
-    console.log(repos);
+ const { id } = useParams();
+
+  const [data, setData] = useState([]);
+  const getData = (async() => { const data = await LoadData('Anime', id);  setData(data); });
+
+  useEffect(() => {
+      getData();
+  }, []);
+
+
+
   return (
     <div className="item_tabs_container">
       <div className="item_tabs">
@@ -47,7 +40,7 @@ function Item_tabs() {
         <div
           className={toggleState === 1 ? "items  active_item" : "items"}>
             <table>
-             {repos.map((item) => {
+             {data.map((item) => {
                 console.log(item)
                     return(
                <>
@@ -89,6 +82,6 @@ function Item_tabs() {
     </div>
   );
 }
-}
+
 
 export default Item_tabs;
