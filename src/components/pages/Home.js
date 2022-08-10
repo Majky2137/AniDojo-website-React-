@@ -6,11 +6,12 @@ import Footer from '../maincomponents/Footer';
 
 
 function Home() {
+  document.body.style.overflow = "hidden"
   return (
+    
       <>
+      
       <Hero />
-      <Content />
-      <Footer/>
       </>
   );
 }

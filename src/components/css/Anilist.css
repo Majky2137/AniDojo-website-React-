@@ -18,7 +18,7 @@
     background-color: #be42427e;
     height: calc(50vh);
     border-radius:10px;
-    margin-top: 80px;
+    margin-top: 30px;
     margin-bottom: 80px;
     justify-content: center;
    
@@ -39,7 +39,7 @@
 .search_box::-webkit-scrollbar {
     display: none;
   }
-.search_box input, select {
+.search_box input, .Select {
     border-radius: 6px;
     display: grid;
     font-family: 'Poppins';
@@ -54,22 +54,58 @@
     margin-bottom: 50px;
     border:none;
 }
+.section_header{
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    display:flex;
+    width:100%;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin-bottom:30px;
+    height: auto;
+    
 
+}
+.section_header p {
+    font-size: 23px;
+    font-weight: 550;
+    color:#E3E3E3;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    border-bottom: 4px solid #BE4242;
+}
+.see_more {
+    color: #BE4242;
+    font-size: 1.2rem;
+    font-weight: 450;
+    margin-left: auto;
+    position: relative;
+    display:flex;
+    text-transform: none;
+    transition: color .2s ease;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 
 .anime {
-    grid-gap: 24px;
     display: grid;
     grid-gap: 28px 30px;
-    grid-template-columns: repeat(auto-fill,192px);
+    grid-template-columns: repeat(auto-fill,185px);
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    padding-bottom: 4rem;
+
 }
-.anime .card-anime {
-    border-radius: 10px;
+.anime .card-cont {
+    display: grid;
+    grid-template-rows: -webkit-min-content auto;
+    grid-template-rows: min-content auto;
+    position: relative;
+    width: 185px;
+}
+.anime .card-cont .card-anime {
+    border-radius: 4px;
+    box-shadow: 0 14px 30px rgba(var(--color-shadow-blue),.15),0 4px 4px rgba(var(--color-shadow-blue),.05);
     cursor: pointer;
     display: inline-block;
     height: 265px;
@@ -78,7 +114,8 @@
     width: 100%;
     z-index: 5;
 }
-.anime .card-anime .info {
+
+.anime .card-cont .card-anime .info {
     position: absolute;
     bottom: 1.5em;
     font-size: 1.2rem;
@@ -93,7 +130,7 @@
     transition: all 0.3s ease-in-out;
   }
 
-.anime .card-anime .info p {
+.anime .card-cont .card-anime .info p {
     overflow: hidden;
     box-sizing: content-box;
     color:rgb(212, 211, 211);
@@ -104,20 +141,20 @@
     transition: all 0.3s ease-in-out;
 }
 
-.anime .card-anime:hover .info {
+.anime .card-cont .card-anime:hover .info {
     opacity: 1;
 }
 
-.anime .card-anime:active {
+.anime .card-cont .card-anime:active {
     transform: translateY(10px);
   }
 
-.anime .card-anime:hover {
+.anime .card-cont .card-anime:hover {
     box-shadow: 0 0 40px #BE4242;
     cursor: pointer;
   }
 
-.anime .card-anime img {
+.anime .card-cont .card-anime img {
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -128,7 +165,20 @@
     object-fit: cover;
     
 }
-
+.anime .card-cont .titleAnime{
+    font-size: 1.1rem;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 21px;
+    min-height: 42px;
+    max-height: 42px;
+    margin-top: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    color: #E3E3E3;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
 
 @media (max-width: 1040px){
     .wrapper{
@@ -150,15 +200,62 @@
     grid-gap: 25px;
     -webkit-overflow-scrolling: touch;
     }
-    .anime {
-    grid-template-columns: repeat(auto-fill,minmax(108px,50px));
-    grid-gap: 19px 20px;
-    justify-content: center;
+    .anime{
+        grid-template-columns: repeat(auto-fill,minmax(162px,1fr));
+        grid-gap: 20px 12px;
+        padding-bottom: 3rem;
     }
-    .anime .card-anime {
-        height: 143px;
+    .anime .card-cont  {
+        display: grid;
+        position: relative;
+        width: 100%;
     }
-    .anime .card-anime .info {
-    display:none;
+    .anime .card-cont:nth-child(7){
+        display:none;
+     }
+    .anime .card-cont .card-anime {
+        cursor: pointer;
+        display: inline-block;
+        height: 265px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 5;
+    
+    }
+  
+    .anime .card-cont .card-anime img {
+        object-fit: cover;
+    }
+
+}
+@media (max-width: 400px){
+    .anime{
+        grid-template-columns: repeat(auto-fill,minmax(99px,1fr));
+        grid-gap: 20px 12px;
+        padding-bottom: 3rem;
+     
+    }
+    .anime .card-cont:nth-child(7){
+       display:none;
+    }
+    .anime .card-cont  {
+        display: grid;
+        position: relative;
+        width: 100%;
+    }
+    .anime .card-cont .card-anime {
+        cursor: pointer;
+        display: inline-block;
+        height: 145px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        z-index: 5;
+    
+    }
+
+    .anime .card-cont .card-anime img {
+        object-fit: cover;
     }
 }

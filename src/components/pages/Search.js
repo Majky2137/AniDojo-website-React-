@@ -7,7 +7,8 @@ import ScrollToTop from '../../scrolltop';
 
 
 function Search() {
-
+  document.body.style.overflow = "scroll"
+  document.body.style.overflowX = "hidden"
   return (
       <>
       <ScrollToTop>

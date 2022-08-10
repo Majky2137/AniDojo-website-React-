@@ -8,6 +8,8 @@ import Footer from '../maincomponents/Footer';
 
 
 function UserProfile() {
+  document.body.style.overflow = "scroll"
+  document.body.style.overflowX = "hidden"
   return (
       <>
       <Profile/>

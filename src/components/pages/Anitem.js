@@ -8,7 +8,8 @@ import ScrollToTop from '../../scrolltop';
 
 
 function Anitem() {
-
+  document.body.style.overflow = "scroll"
+  document.body.style.overflowX = "hidden"
   return (
       <>
       <ScrollToTop>

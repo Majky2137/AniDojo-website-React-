@@ -16,12 +16,13 @@
     width:100%;
     margin-top:20px;
     height: auto;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 }
 
 .header-title-info p {
-    font-size: 26px;
+    font-size: 23px;
     font-weight: 550;
-    margin: 0;
     color:#E3E3E3;
     font-family: 'Poppins';
     text-transform: uppercase;
@@ -31,12 +32,14 @@
 .results {
     padding-top: 1rem;
     padding-bottom: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     display: grid;
     margin-top: 20px;
     margin-bottom: 10px;
     grid-gap: 30px 30px;
-    grid-template-columns: repeat(4,0.5fr);
-    grid-template-rows: 27rem 21rem ;
+    grid-template-columns: repeat(3,0.5fr);
+    grid-template-rows: 22rem 18rem ;
     align-content: center;
     width: 100%;
     justify-content: center;
@@ -45,13 +48,13 @@
 
 .results .card {
     position: relative;
-    border-radius: 10px;
+    border-radius: 8px;
     margin:0;
     cursor:pointer;
     transition: all 0.3s ease-in-out;
 }
 
-.card .info {
+.results .card .info {
     position: absolute;
     bottom: 0;
     left:0;
@@ -69,70 +72,100 @@
     transition: all 0.3s ease-in-out;
   }
 
-.card .info p {
+.results .card .info p {
     overflow: hidden;
+    margin-top:4px;
     box-sizing: content-box;
-    color:rgb(212, 211, 211);
+    color:rgb(204, 204, 204);
     width: 65%;
     height: 33px;
+    font-weight: 450;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 19px;
     transition: all 0.3s ease-in-out;
 }
-
-.card:hover .info {
-    opacity: 1;
+.results .card .info h3 {
+    font-weight: 600;
+    font-size: 24px;
 }
 
-.card:active {
+.results .card:hover .info {
+    opacity: 1;
+    max-height: 100%;
+}
+.results .card:hover .info p {
+    opacity: 1;
+    height: 100px;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.results .card:active {
     transform: translateY(10px);
   }
 
-.card:hover {
+.results .card:hover {
     box-shadow: 0 0 40px #BE4242;
     cursor: pointer;
   }
 
-.card img {
-    border-radius: 10px;
+.results .card img {
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     overflow: hidden;
     height: 100%;
     width: 100%;
-    z-index: 5;
+    z-index: 9999;
     object-fit: cover;
 }
 
-.card:nth-child(1) {
 
+.results .card:nth-child(1) {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-
 }
 
-.card:nth-child(2) {
+.results .card:nth-child(2) {
     grid-column-start: 1;
     grid-row-start: 3;
     grid-row-end: 2;
 }
 
-.card:nth-child(3) {
+.results .card:nth-child(3) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.results .card:nth-child(5) {
     grid-column-start: 3;
-    grid-column-end: 5;
+    grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 2;
 }
 
-.overlay {
+.results .card .overlay {
     background-color: #1E2029;
     filter:opacity(0.58);
     position: absolute;
     height: 100%; 
     width:100%;
-    border-radius: 10px;
+    border-radius: 8px;
+    top:0;
+    left:0;
+    z-index:1;
+}
+.manga .card .overlay {
+    background-color: #1E2029;
+    filter:opacity(0.58);
+    position: absolute;
+    height: 100%; 
+    width:100%;
+    border-radius: 8px;
     top:0;
     left:0;
     z-index:1;
@@ -144,7 +177,7 @@
     position: absolute;
     height: 100%; 
     width:100%;
-    border-radius: 10px;
+    border-radius: 8px;
     top:0;
     left:0;
     z-index:1;
@@ -186,7 +219,7 @@
     max-width:7.2rem;
     max-height: 7.2rem;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .categories .cat_item img{
@@ -195,7 +228,7 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     object-fit: cover;
 }
 
@@ -212,13 +245,15 @@
 
 .manga {
     padding-top: 1rem;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     display: grid;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     grid-gap: 30px 30px;
     grid-template-columns: repeat(6,0.5fr);
-    grid-template-rows: 22rem 20rem ;
+    grid-template-rows: 22rem 27rem ;
     align-content: center;
     width: 100%;
     justify-content: center;
@@ -227,7 +262,7 @@
 
 .manga .card {
     position: relative;
-    border-radius: 10px;
+    border-radius: 8px;
     margin:0;
     cursor:pointer;
     transition: all 0.3s ease-in-out;
@@ -254,9 +289,14 @@
     color:rgb(212, 211, 211);
     width: 65%;
     height: 33px;
+    font-weight: 700;
     font-size: 16px;
     line-height: 16px;
     transition: all 0.3s ease-in-out;
+}
+.manga .card .info h3 {
+    font-weight: 600;
+    font-size: 24px;
 }
 
 .manga .card:hover .info {
@@ -273,7 +313,7 @@
   }
 
 .manga .card img {
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     overflow: hidden;
@@ -285,13 +325,17 @@
 }
 
 .manga .card:nth-child(1) {
+
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
+  
+
 }
 
 .manga .card:nth-child(2) {
+
     grid-column-start: 4;
     grid-column-end: 7;
     grid-row-start: 1;
@@ -299,24 +343,35 @@
 }
 
 .manga .card:nth-child(3) {
-    grid-column-start: 2;
+    display: none;
+}
+.manga .card:nth-child(4) {
+    display: none;
+}
+.manga .card:nth-child(5) {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.manga .card:nth-child(6) {
+    display:none;
+}
+.manga .card:nth-child(7) {
+
+    grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 2;
 }
-.manga .card:nth-child(4) {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 2;
-}
+.manga .card:nth-child(8) {
 
-.manga .card:nth-child(6) {
-    grid-column-start: 4;
+    grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 2;
 }
+
 
 @media (max-width: 1040px){
 .page_content{
@@ -338,46 +393,57 @@
 }
 
 .manga .card {
-    border-radius: 0.5rem;
+    border-radius: 8px;
     overflow: hidden;
 }
 .manga .card img {
-    border-radius: 0.5rem;
+    border-radius: 8px;
 }
 
 .overlay_gray {
-    border-radius: 0.5rem;
+    border-radius: 8px;
 }
 
-
-
+.manga .card .overlay {
+    border-radius: 8px;
+}
 .header-title-info {
-    padding-left: 1.8rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
-.info {
-    font-size: 0.9rem;
-}
-
-.manga .card .info {
-    font-size: 0.9rem;
-}
-.header-title-info h3{
+.results .card .info h3 {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 0.9rem; 
+    
 }
+.results .card .info {
+    padding-left:6px;
+    padding-right:6px;
+    padding-bottom:13px;
+    opacity: 1;
+    height: auto;
+    width: 100%;
 
-.header-title-info {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top:0;
+
 }
-
+.manga .card .info {
+    padding-left:6px;
+    padding-right:6px;
+    padding-bottom:13px;
+    opacity: 1;
+    height: auto;
+    width: 100%;
+}
+.manga .card .info h3 {
+    font-weight: 700;
+    font-size: 0.9rem; 
+    
+}
 .sall {
     padding-right: 0px;
     font-size: 1rem;
 }
-
 .categories {
     margin-top:15px;
     margin-bottom:30px;
@@ -390,22 +456,26 @@
 
 @media screen and (max-width: 960px){
 .results {
-    grid-template-rows: 8rem 8rem ;
+    grid-template-rows: 10rem 10rem ;
     grid-gap: 14px 7px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .manga {
-    grid-template-rows: 8rem 6rem ;
+    grid-template-rows: 14rem 10rem ;
     grid-gap: 14px 7px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 
 .manga .card {
-    border-radius: 0.5rem;
+    border-radius: 8px;
     overflow: hidden;
 }
 .manga .card img {
-    border-radius: 0.5rem;
+    border-radius: 8px;
 }
 .card .info p {
     display:none;
@@ -479,18 +549,18 @@
 }
 
 .overlay_gray {
-    border-radius: 0.5rem;
+    border-radius: 8px;
 }
 
 
 .header-title-info p {
     font-size: 16px;
 }
-
 .header-title-info {
-    padding-left: 1.5rem;
-    margin-top:0;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
 }
+
 
 .card {
     overflow: hidden;
@@ -541,10 +611,14 @@
 .results {
     grid-template-rows: 20rem 14rem ;
     grid-gap: 14px 10px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }   
 .manga {
     grid-template-rows: 22rem 14rem ;
     grid-gap: 14px 10px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
     
 .manga .card:nth-child(1) {

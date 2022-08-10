@@ -196,7 +196,7 @@
 
 .item_info {
     flex-direction: column;
-    max-height: 30vh;
+    max-height: 50vh;
     position: relative;
     max-width: 60%;
     display:flex;
@@ -445,7 +445,7 @@
         max-height: 25vh;
         min-height: 25vh;
         margin-bottom: 10px;
-        margin-top: 70px;
+  
      
  
     }

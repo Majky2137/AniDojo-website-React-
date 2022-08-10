@@ -153,8 +153,7 @@
       position: relative;
       top: 0;
       left: 0;
-      transform: translate(0%, 80%);
-      align-self: flex-start;
+     justify-content: center;
     }
   
     .menu-icon {

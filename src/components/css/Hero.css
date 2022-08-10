@@ -1,7 +1,7 @@
 
   .hero-container {
     background: #1E2029;
-    height: 95vh;
+    height: 100%;
     width: 100%;
     flex:1;
     flex-wrap: wrap;
@@ -9,10 +9,10 @@
     position: relative;
     flex-direction: row;
     align-items: center;
+    overflow-y: hidden;
     justify-content: space-between;
-    object-fit: cover;
+    object-fit: contain;
     resize:both;
-    margin-bottom:6rem;
   }
 
   
@@ -21,8 +21,8 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 90vh;
-    object-fit: contain;
+    height: 100vh;
+    object-fit: cover;
     flex:1;
     flex-wrap:initial;
     width:100%;
@@ -33,10 +33,12 @@
 
   .container_s{
     position: relative;
-    display: flex;
+    display: grid;
     width: 55%;
     z-index:1;
-    align-items: flex-end;
+    overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
     right: 0;
     padding-bottom: 6rem;
   }
@@ -46,9 +48,10 @@
     flex-direction: column;
     width:45%;
     z-index:1;
-    top:20%;
+    justify-content: center;
     height: 100%;
     padding-left:12rem;
+    padding-bottom:10rem;
   }
 
   .section_text_cont {
@@ -63,12 +66,13 @@
 
   .text_container > h1 {
     color: #E3E3E3;
-    font-size: 52px;
+    font-size: 58px;
     font-family: 'Poppins';
     font-weight: 600;
-    line-height: 50px;
-    max-width: 40%;
+    line-height: 65px;
+    max-width: 80%;
     text-align: left;
+    text-transform: uppercase;
   }
 
   .btn {
@@ -76,15 +80,14 @@
   }
 
 
-  .text_container > span {
-    margin-top:8px;
-    color: rgb(197, 197, 197);
-    font-size: 17px;
+  .text_container > h1 > span {
+    color:#BE4242;
+    text-transform: uppercase;
+    font-size: 58px;
     font-family: 'Poppins';
-      max-width: 400px;
-      max-height: 100px;
-      overflow:hidden;
-      
+    font-weight: 600;
+    line-height: 55px;
+    text-align: left;
   }
 
   .bg{
@@ -120,31 +123,39 @@
     
     .hero-container  {
       height:auto;
-      margin-bottom:3rem;
+      margin-bottom:0;
       }
 
     .Items {
       overflow: hidden;
       flex-direction: column;
   }
-
-    .text_container {
-      padding-left: 3rem;
-      top:10%;
-    }
+  .text_container > h1 {
+    color: #E3E3E3;
+    font-size: 58px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 65px;
+    max-width: 80%;
+    text-align: left;
+    padding-left: 3rem;
+    padding-bottom:0rem;
+  }
     .text_container span {
       margin-top:8px;
     }
+   
     .container_s{
       align-self:flex-end;
       padding-bottom: 3rem;
+      margin-top: 3rem
     }
   }
 
   @media only screen and (min-width: 280px) and (max-width: 960px){
     .hero-container  {
       height:auto;
-      margin-bottom:2rem;
+      margin-bottom:0;
       }
 
     .Items {
@@ -158,31 +169,37 @@
     font-family: 'Poppins';
     font-size: 18px;
   }
+   .text_container > h1 {
+      color: #E3E3E3;
+      font-size: 58px;
+      font-family: 'Poppins';
+      font-weight: 600;
+      line-height: 65px;
+      max-width: 80%;
+      text-align: left;
+    }
 
     .text_container {
       padding-left: 0rem;
-      width:70%;
-      top:10%;
+      width:100%;
 
     }
     .text_container span {
       margin-top:8px;
+      
     }
     .container_s{
-      padding-top:3rem;
       width: 100%;
       padding-bottom: 3rem;
+      margin-top: 3rem
   }
    .text_container {
       padding-bottom: 0;
       margin-bottom:0;
-      top:10%;
   }
   }
   @media  (max-width:1280px) and (orientation: landscape) {
-    .text_container{
-      padding-left: 11.5rem;
-    }
+
   }
  
 

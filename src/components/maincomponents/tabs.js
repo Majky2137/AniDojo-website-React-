@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import '../css/Item_anime_main.css';
+import { Link } from 'react-router-dom';
 import LoadData from '../loadData';
 
 function Item_tabs() {
@@ -13,11 +14,15 @@ function Item_tabs() {
 
  const { id } = useParams();
 
-  const [data, setData] = useState([]);
+ const [data, setData] = useState([]);
+ const [relatedEntries, setRelatedEntries] = useState([]);
+
   const getData = (async() => { const data = await LoadData('Anime', id);  setData(data); });
+  const getRelatedEntries = (async() => { const relatedEntries = await LoadData('Related', id);  setRelatedEntries(relatedEntries); });
 
   useEffect(() => {
       getData();
+      getRelatedEntries();
   }, []);
 
 
@@ -32,7 +37,7 @@ function Item_tabs() {
         <p>Characters</p>
         </button>
         <button className={toggleState === 3 ? "item_tabs active_tab" : "item_tabs"} onClick={() => initTab(3)}>
-         <p>Related</p>
+         <p>Relations</p>
         </button>
       </div>
 
@@ -60,23 +65,33 @@ function Item_tabs() {
         <div
           className={toggleState === 2 ? "items  active_item" : "items"}
         >
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
+        
         </div>
 
         <div
           className={toggleState === 3 ? "items  active_item" : "items"}
         >
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-            nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-            Accusamus in quia odit aspernatur provident et ad vel distinctio
-            recusandae totam quidem repudiandae omnis veritatis nostrum
-            laboriosam architecto optio rem, dignissimos voluptatum beatae
-            aperiam voluptatem atque. Beatae rerum dolores sunt.
-          </p>
+           <div classname="relations_wrapper">
+         
+         <div className="relation_cards_container">
+  
+         {relatedEntries.map((item) => {
+          console.log(item)
+          return(
+           <div className="relation_card">
+            <Link  onClick={item.relatedEntries = []} style= { {textDecoration: 'none'}} className='card_wrap' key={item.id} to={`../anime/${item.related_id}`} state={item}>
+             <img  src={item.cover} alt="cover"/>
+             <div className="card_title">{item.title}</div>
+             </Link>
+  
+           </div>
+               
+            );
+           })}
+           
+         </div>
+          
+     </div>
         </div>
       </div>
     </div>

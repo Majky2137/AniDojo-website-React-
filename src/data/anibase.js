@@ -82,19 +82,6 @@ let mainbase = [
     studio:'Undefinied',
     type:'TV Series',
 },
-{
-    id:'7',
-    video:'tYDDS0OzV_Q',
-    title:'Date A Live IV',
-    maintitle:'Date A Live IV',
-    status:'Airing',
-    description:"The fourth season of Date A Live",
-    thumbnail:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg',
-    mainimage:'https://i.ibb.co/Ypbbz8Q/bx116605-uz-Dak-Xna-Z1-OW.jpg',
-    color:'#B0E0E6',
-    studio:'Undefinied',
-    type:'TV Series',
-},
 
 
 
