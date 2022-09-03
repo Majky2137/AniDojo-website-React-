@@ -2,40 +2,34 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import '../../App.css';
 import '../css/Item_anime.css';
+import {Fav_button, Change_Status}from '.././list_buttons';
 import NavBar from './navbar';
 import ModalVideo from 'react-modal-video'
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import Home from '../pages/Home';
 import LoadData from '../loadData';
+import Modal from '.././modal';
+
 
 const Item_anime_heading = () =>  {
-
+  const [openmodal, setModal] = useState(false);
 
   const { id } = useParams();
   const [open, setOpen] = useState(false);
   
+  
   const [data, setData] = useState([]);
-  const getData = (async() => { const data = await LoadData('AnimeID', id); setData(data[0]); });
+  const getData = async() => { const data = await LoadData('AnimeID', id); setData(data[0]); };
   
     useEffect(() => {
         getData();
     }, []);
   
-  if(data != null && data != [] && data.pv){
-  const FollowButton = () => {
-    const [followed, setFollowed] = useState();
+  if(data != null && data !== [] && data.pv){
 
-    return (
-      <div className='item_save'>
-      <button onClick={() => setFollowed((isFollowed) => !isFollowed)}>
-      <i  class={followed ? "fa-solid fa-square-minus grey" : "fa-solid fa-square-plus white"}
-     />
-   </button>
-   </div>
-    )};
   return (
       <div className='item_container'>
         <div className='item_back_cont'/>
@@ -50,6 +44,12 @@ const Item_anime_heading = () =>  {
                   <button onClick={()=> setOpen(true)} class="item_pv_button" >
                   <span></span>
                   </button>
+
+                  <div className='btn_editor_cont'>
+                  <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{setModal(true)}}></i>
+                  </div>
+
+                  
                   </div>
                   <img src={data.cover} alt="bg"></img>
               </div>
@@ -57,13 +57,13 @@ const Item_anime_heading = () =>  {
             <div className='item_info'>
               <div className='item_heading'>
                 <h1>{data.title}</h1>
-               <FollowButton/>
               </div>
 
               <div className='item_categories'>
                 <span>Action</span>
                 <span>Drama</span>
                 <span>Adventure</span>
+        
               </div>
              
              <div className='item_details'>
@@ -83,8 +83,10 @@ const Item_anime_heading = () =>  {
                  </table>
               </div>
               </div>
-              
-             
+              </div>
+              <div className='btns_container'>
+              <Change_Status/>
+              <Fav_button/>
               </div>
               <div className='item_summary'>
                 <h1>Summary</h1>
@@ -99,21 +101,22 @@ const Item_anime_heading = () =>  {
                   <br></br>
                   <h1>Age Clasification:</h1>
                   <p>18+</p>
-          
                 </div>
           
-              
                 <div className='item_tags'>
                   <h1>Tags</h1>
                   <p>#Tag1</p>
                   <p>#Tag2</p>
                   <p>#Tag3</p>
                   <p>#Tag4</p>
+              
                 </div>
               </div>
       
     </div>
+  
     <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={ data.pv.split("/")[4] } onClose={() => setOpen(false)} />
+    {openmodal && <Modal closeModal={setModal} />}
   </div>
 
 

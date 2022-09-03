@@ -26,7 +26,8 @@
     color:#E3E3E3;
     font-family: 'Poppins';
     text-transform: uppercase;
-    border-bottom: 4px solid #BE4242;
+    border-left: 3px solid #BE4242;
+    text-indent: 10px;
 }
 
 .results {
@@ -106,7 +107,7 @@
   }
 
 .results .card:hover {
-    box-shadow: 0 0 40px #BE4242;
+    box-shadow: 0 0 33px #BE4242;
     cursor: pointer;
   }
 

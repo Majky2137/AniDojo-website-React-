@@ -37,7 +37,7 @@ const Hero = () => {
               {data.map((item) => {
                     return(
         <Link className='card' key={item.id} to={`anime/${item.id}`} state={item}>        
-       <div className='overlay'></div>
+       <div className='overlay '></div>
       <img src={item.cover} alt="cannot display"/>
      <div className='info'>
       <h3>{item.title}</h3>

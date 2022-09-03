@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../css/UserProfile.css';
+import UserList from "../usercomponents";
 
 const Profile_tabs =() => {
   const [toggleState, setToggle] = useState(1);
@@ -55,10 +56,7 @@ const Profile_tabs =() => {
         <div
           className={toggleState === 2 ? "items_container  active_item" : "items_container"}
         >
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            voluptatum qui adipisci.
-          </p>
+       <UserList/>
         </div>
 
         <div

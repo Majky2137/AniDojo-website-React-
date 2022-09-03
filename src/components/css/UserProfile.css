@@ -58,12 +58,12 @@
 .main_profile_wrapper{
     display:flex;
     width: 100%;
-    max-height: 100vh;
+    max-height: 100%;
     padding-left:3rem;
     padding-right:3rem;
     background-color: var(--color-background-main);
     flex-direction: column;
-    overflow-y: scroll;
+
     overflow-x: hidden;
 }
 .main_profile_wrapper > .navbar_top{

@@ -1,10 +1,7 @@
 import React from 'react';
-import {useState} from 'react';
 import '../../App.css';
 import '../css/Item_anime_main.css';
 import { useLocation, useParams } from 'react-router-dom';
-import mainbase from '../../data/anibase';
-import manga_base from '../../data/mangabase';
 import Item_tabs from './tabs';
 
 

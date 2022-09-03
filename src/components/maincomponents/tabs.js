@@ -4,6 +4,8 @@ import '../css/Item_anime_main.css';
 import { Link } from 'react-router-dom';
 import LoadData from '../loadData';
 
+
+
 function Item_tabs() {
 
   const [toggleState, setToggle] = useState(1);
@@ -16,12 +18,15 @@ function Item_tabs() {
 
  const [data, setData] = useState([]);
  const [relatedEntries, setRelatedEntries] = useState([]);
+ const [characters, setCharacters] = useState([]);
 
   const getData = (async() => { const data = await LoadData('Anime', id);  setData(data); });
+  const getCharacters = (async() => { const characters = await LoadData('Characters', id);  setCharacters(characters); });
   const getRelatedEntries = (async() => { const relatedEntries = await LoadData('Related', id);  setRelatedEntries(relatedEntries); });
 
   useEffect(() => {
       getData();
+      getCharacters();
       getRelatedEntries();
   }, []);
 
@@ -44,28 +49,39 @@ function Item_tabs() {
       <div className="item_tab_results">
         <div
           className={toggleState === 1 ? "items  active_item" : "items"}>
-            <table>
+             <div className="videos_wrapper">
              {data.map((item) => {
                 console.log(item)
                     return(
                <>
-              <tr>
-               <td><iframe allowFullScreen={true} src={item.link} /> <th>{item.ep_nr} - {item.title}<th>Time[{item.episode_time}]</th></th>
-              </td>
-              
-               <tr>   
-             </tr>
-             </tr>
+               <div className="Video_card"><iframe allowFullScreen={true} src={item.link} /> <p>{item.ep_nr} - {item.title}</p><p>Time[{item.episode_time}]</p></div>
              </>
                     );
                   })}
-            </table>
+            </div>
         </div>
 
         <div
           className={toggleState === 2 ? "items  active_item" : "items"}
         >
-        
+             <div classname="characters_wrapper">
+         
+         <div className="character_cards_container">
+  
+         {characters.map((item) => {
+          return(
+           <div className="character_card">
+            <Link onClick={item.characters = []} style= { {textDecoration: 'none'}} className='character_card_wrap' key={item.id} to={`../character/${item.id}`} state={item}>
+             <img src={item.image} alt="cover"/>
+             <div className="character_card_title">{item.name}</div>
+             </Link>
+           </div>
+            );
+           })}
+           
+         </div>
+          
+     </div>
         </div>
 
         <div
@@ -79,13 +95,11 @@ function Item_tabs() {
           console.log(item)
           return(
            <div className="relation_card">
-            <Link  onClick={item.relatedEntries = []} style= { {textDecoration: 'none'}} className='card_wrap' key={item.id} to={`../anime/${item.related_id}`} state={item}>
-             <img  src={item.cover} alt="cover"/>
+            <Link onClick={item.relatedEntries = []} style= { {textDecoration: 'none'}} className='card_wrap' key={item.id} to={`../anime/${item.related_id}`} state={item}>
+             <img src={item.cover} alt="cover"/>
              <div className="card_title">{item.title}</div>
              </Link>
-  
            </div>
-               
             );
            })}
            

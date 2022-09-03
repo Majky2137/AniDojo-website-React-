@@ -24,13 +24,13 @@ const Anilist = () => {
 
     let options2 = [{}];
 
-    const getTrending = (async() => { const trending = await LoadData('Search');  setTrending(trending); setUseThis(trending); } );
-    const getGenres = (async() => { const genres = await LoadData('Genres');  setGenres(genres); });
-    const getPopularSeasonal = (async() => { const popularSeasonal = await LoadData('Search2');  setPopularSeasonal(popularSeasonal); });
-    const getMostPopular = (async() => { const mostPopular = await LoadData('Search3');  setMostPopular(mostPopular); });
-    const getPopularNextSeason = (async() => { const popularNextSeason = await LoadData('Search4');  setPopularNextSeason(popularNextSeason); });
-    const getSearchedAnime = (async() => { const searchedAnime = await LoadData('Searched', null, searchTerm);  setSearchedAnime(searchedAnime); });
-    const getOptions = (() => {genres.forEach((genre) => { return options2.push([{'value' : genre.id, 'label' : genre.genre}]); })});
+    const getTrending = async() => { const trending = await LoadData('Search');  setTrending(trending); setUseThis(trending); };
+    const getGenres = async() => { const genres = await LoadData('Genres');  setGenres(genres); };
+    const getPopularSeasonal = async() => { const popularSeasonal = await LoadData('Search2');  setPopularSeasonal(popularSeasonal); };
+    const getMostPopular = async() => { const mostPopular = await LoadData('Search3');  setMostPopular(mostPopular); };
+    const getPopularNextSeason = async() => { const popularNextSeason = await LoadData('Search4');  setPopularNextSeason(popularNextSeason); };
+    const getSearchedAnime = async() => { const searchedAnime = await LoadData('Searched', null, searchTerm);  setSearchedAnime(searchedAnime); };
+    const getOptions = () => {genres.forEach((genre) => { return options2.push([{'value' : genre.id, 'label' : genre.genre}]); })};
  
     useEffect(() => {  
         if(genres.length === 0) getGenres();
@@ -65,13 +65,18 @@ const Anilist = () => {
             <div className='search_box'> 
          
                 <input type="search " name="ani_search" placeholder='Search for a specific anime' onChange={event => {setSearchTerm(event.target.value)}}></input> 
-              
+                <select>
+                    {genres.map((item) => (
+                    <option onChange={event => {setSearchTerm(event.target.value)}}>
+                      {item.genre}
+                    </option>
+                    ))}
+                    </select>
                 <input type="search " name="ani_search" placeholder='Any'></input>  
                 <input type="search " name="ani_search" placeholder='Any'></input>  
                 <input type="search " name="ani_search" placeholder='Any'></input>  
                 <input type="search " name="ani_search" placeholder='Any'></input>   
                 <input type="search " name="ani_search" placeholder='Any'></input>   
-                <Select options={options2}/>
                 </div> 
 
             <div className='section_header'>
@@ -79,12 +84,11 @@ const Anilist = () => {
                   <span className='see_more'>More</span>
             </div> 
             <div className='anime'>
-               
                 { useThis.map((item) => {
                     return(
                         <Link style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
                         <div className='card-anime'>   
-                    <div className='overlay_gray'></div>
+                    <div className='overlay_gray '></div>
                     <img src={item.cover} alt="cannot display"/>
                     </div>
                     <div className='titleAnime'>

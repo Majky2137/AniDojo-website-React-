@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins' 'sans-serif';
+  font-weight: 300;
+  background: #181818;
+  color: #fff;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
+.login_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#ls{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#obrazek {
+  flex: 1;
+}
+
+#zal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding-bottom: 1rem;
+}
+
+#zal form {
+  width: 80%;
+  padding-bottom: 3rem;
+}
+
+.logo {
+  color: #E3E3E3;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  cursor: pointer;
+  font-family: 'Poppins' 'sans-serif';
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex;
+
+}
+.logo_container {
+  display:flex;
+  padding:20px;
+  justify-content: center;
+}
+.logo img {
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+#zal label {
+  font-size: 0.9rem;
+  line-height: 2rem;
+  font-weight: 500;
+}
+
+#zal .pol-teks {
+  margin-bottom: 1.3rem;
+  width: 100%;
+  border-radius: 2px;
+  background: #181818;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  line-height: 1.3rem;
+}
+
+#zal .loguj {
+  width: 100%;
+}
+
+#zal .utw,
+.or,
+.linki {
+  width: 60%;
+}
+
+#zal .linki a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+#zal .or {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.2rem;
+  align-items: center;
+}
+
+#zal .or .paski {
+  flex: auto;
+  border: none;
+  height: 1px;
+  background: #aaa;
+}
+
+#zal .or span {
+  color: #ccc;
+  padding: 0 0.8rem;
+}
+
+#sekcja {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://i.ibb.co/chjCVxV/KIMNYA.jpg') no-repeat center center / cover;
+  height: 100vh;
+  text-align: center;
+}
+
+#sekcja .tekst {
+  font-size: 3rem;
+  width: 100%;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+#sekcja .utw {
+  width: 60%;
+  margin: auto;
+}
+
+
+#stopka {
+  color: #ccc;
+  text-align: center;
+  font-size: 0.8rem;
+  max-width: 80%;
+  padding-top: 5rem;
+}
+
+#stopka a {
+  color: #dc3545;
+  text-decoration: underline;
+}
+
+
+.loguj {
+  padding: 0.7rem 1rem;
+  height: 2.7rem;
+  display: block;
+  border: 0;
+  border-radius: 2px;
+  font-weight: 500;
+  background: #dc3545;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.loguj:hover {
+  background-color: #8a7c7d;
+}
+
+.utw {
+  padding: 0.7rem 1rem;
+  height: auto;
+  display: block;
+  border: 1px solid #f4f4f4;
+  border-radius: 2px;
+  font-weight: 500;
+  background: none;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.utw:hover {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+@media (min-width: 1200px) {
+  #ls {
+    flex: 4;
+  }
+
+  #obrazek {
+    flex: 6;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  #obrazek {
+    display: none;
+  }
+
+  #ls {
+
+  }
+
+  #zal .logo {
+    margin-bottom: 2vh;
+  }
+
+  #zal .pol-teks {
+    margin-bottom: 0.7rem;
+  }
+
+  #stopka {
+    padding-top: 1rem;
+  }
+}
+

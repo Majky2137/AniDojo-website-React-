@@ -36,11 +36,11 @@
 
 .overlay2 {
     background-color: #1E2029;
-    filter:opacity(0.55);
-    -o-filter:opacity(0.55);
-    -ms-filter:opacity(0.55);
-    -moz-filter:opacity(0.55);
-    -webkit-filter:opacity(0.55);
+    filter:opacity(0.70);
+    -o-filter:opacity(0.70);
+    -ms-filter:opacity(0.70);
+    -moz-filter:opacity(0.70);
+    -webkit-filter:opacity(0.70);
     position: absolute;
     height: 100%; 
     width:100%;
@@ -219,43 +219,6 @@
     font-family: 'Poppins';
     padding-bottom: 0.3em;
 }
-
-.item_save {
-    display:flex;
-    position: relative;
-
-    flex-direction: row;
-    max-height: 10vh;
-
-}
-.item_save button{
-    background-color: transparent;
-    display:flex;
-    position: relative;
-    outline:none;
-    align-self:baseline;
-    border:none;
-}
-
-.item_save i {
-    font-size: 30px;
-    align-self:baseline;
-    transition: all 0.1s ease-in-out;
-    cursor: pointer;
-}
-.item_save i:hover {
-    color: #BE4242;
-    font-weight: 600;
-    box-shadow: 0 0 20px #BE4242;
-}
-.grey{
-    color: rgb(150, 35, 35);
-  }
-.white{
-    color: white;
-  }
-
-
 .item_categories {
     display:flex;
     position: relative;
@@ -311,6 +274,161 @@
     display: block;
     max-width: 95%;
     margin-bottom: 40px;
+    
+}
+.btns_container {
+    display:flex;
+    flex-direction: row;
+    padding-left: 4px;
+    width:288px;  
+    padding-bottom:20px;
+}
+.btns_container select {
+    margin-bottom:0;
+    
+}
+.btn_plus {
+    display: flex;
+    margin-left:12px;
+    padding-left: 1.5px;
+    border-radius: 10px;
+    background-color: #e74133;
+    color: white;
+    font-size: 18px;
+    border: none;
+    justify-content: center;
+    height: 40px;
+    width:40px;
+    display: flex;
+    align-items: center;
+    transition: all .3s ease-in-out;
+    letter-spacing: 2px;
+}
+.btn_plus i {
+    color:#fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size:18px;
+
+}
+.btn_text i {
+    color:grey;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size:18px;
+}
+
+.btn_plus:hover {
+    color:#fff;
+    cursor:pointer;
+    box-shadow: 0px 0px 5px 7px #e7413373;
+}
+
+.btn_text {
+    display: flex;
+    margin-left:12px;
+    padding-left: 1.5px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: white;
+    font-size: 18px;
+    border: none;
+    justify-content: center;
+    display: flex;
+    height: 40px;
+    width:40px;
+    align-items: center;
+    transition: all .3s ease-in-out;
+    letter-spacing: 2px;
+    transform: rotate(-1turn);
+}
+.btn_text:hover {
+    color:#fff;
+    cursor:pointer;
+    background-color: rgb(37, 37, 37);
+    box-shadow: 0px 0px 5px 7px rgb(85, 85, 85);
+}
+
+.btn_add_unlogged {
+    cursor: pointer;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: all .2s;
+    padding: 10px 20px;
+    max-height: 40px;
+    width:150px;
+    color:#999999;
+    border-radius: 5px;
+    background: #26262b;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    box-shadow: 0px 0px 7px 1px rgb(85, 85, 85);
+}
+.btn_add_unlogged:hover {
+    background: #fff;
+    color:#26262b;
+}
+.btn_add_unlogged:active {
+    transform: scale(0.95);
+}
+.spin_cont {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    display: flex;
+    border-radius: 5px;
+    width:150px;
+}
+
+.spin__input {
+    border-color: transparent;
+    padding: 4px;
+    background: #26262b;
+    color:#999999;
+    width: 100%;
+    height: 40px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: all .2s;
+    outline: none;
+}
+.select__input {
+    border-color: transparent;
+    padding: 4px;
+    width: 150px;
+    background: #26262b;
+    color:#999999;
+    height: 40px;
+    width:150px;
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: all .2s;
+    outline: none;
+ 
+}
+
+.spin__buttons {
+    /* Content is centered vertically */
+    font-weight: 400;
+    font-family: 'Poppins';
+    transition: all .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.spin__buttons i {
+    font-size: 10px;
+}
+
+.spin__button {
+    border-color: transparent;
+    background: #26262b;
+    flex: 1;
+    cursor: pointer;
+    width: 30px;
     
 }
 
@@ -457,6 +575,10 @@
     .item_summary p {
         text-align: justify;
         width: 100%;
+    }
+    .btns_container {
+        width:100%;
+        justify-content: center;
     }
     .item_right_content {
         padding-left:2.5rem;

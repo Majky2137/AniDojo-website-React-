@@ -2,12 +2,9 @@ import React from 'react';
 import {useState} from 'react';
 import '../../App.css';
 import '../css/UserProfile.css';
-import NavBar from './navbar';
 import ModalVideo from 'react-modal-video'
 import { useLocation, useParams } from 'react-router-dom';
 import '../../../node_modules/react-modal-video/scss/modal-video.scss';
-import mainbase from '../../data/anibase';
-import manga_base from '../../data/mangabase';
 import Profile_tabs from './profile_content_tabs';
 
 function Profile() {

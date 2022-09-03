@@ -2,7 +2,7 @@
     margin: 0 auto;
     min-width: 320px;
     width: 100%;
-    min-height: 90vh;
+    min-height: 70vh;
     position: relative;
 }
 .item_tabs_container {
@@ -73,18 +73,38 @@
 .active_tab p{
     color:#BE4242;
 }
+.active_tab p{
+    transition: all 0.3s ease-in-out;
+}
   
 
  .item_tabs button {
     border: none;
     
 }
-.items td > iframe{
+.videos_wrapper{
+    display: flex; 
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.Video_card {
+    flex-basis: 25%;
+
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.Video_card p {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+.Video_card iframe{
     border-radius: 5px;
     border-style: unset;
     border-color: initial;
-    width: 440px;
-    height: 180px;
+    width: 315px;
+    height: 205px;
     display: flex;
 }
 .relations_wrapper {
@@ -96,6 +116,8 @@
     grid-column-gap: 30px;
     padding:10px;
     grid-row-gap: 15px;
+    height:calc(33vh);
+    position: relative;
     grid-template-columns: repeat(auto-fill,minmax(135px,1fr));
 }
  .relation_card {
@@ -108,12 +130,16 @@
     flex-direction: row;
     max-height: 185px;
     object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+.relation_card:hover {
+    box-shadow: 0 0 13px #BE4242;
+    cursor: pointer;
 }
 .card_wrap{
     cursor: pointer;
     display: inline-block;
     height: 100%;
-    overflow: hidden;
     position: relative;
     width:100%;
     height: 100%;
@@ -136,11 +162,89 @@
     position: relative;
 }
 .card_title {
-    display: -webkit-box;
-    font-size: 1.4rem;
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 100%;
+    max-height: 8vh;
+    line-height: 2.8vh;
+    text-align-last: left;
     overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    text-align: start;
+    color: #e3e3e3c9;
+    font-family: 'Poppins';
+}
+
+.character_wrapper {
+    position: relative;
+    display: block;
+}
+ .character_cards_container {
+  display:flex;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  padding:10px;
+  width:100%;
+  height:calc(20vh);
+  position: relative;
+  scroll-padding:24px;
+  gap:34px;
+}
+.character_cards_container::-webkit-scrollbar {
+    display: none;
+  }
+ .character_card {
+    border-radius: 3px;
+    display: flex;
+    height: 85px;
+    border-radius: 8px;
+    width:85px;
+    min-width:85px;
+    flex-direction: row;
+    max-height: 85px;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+}
+.character_card:hover {
+    box-shadow: 0 0 13px #BE4242;
+    cursor: pointer;
+}
+.character_card_wrap{
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    height:100%;
+    width:100%;
+    height: 100%;
+    z-index: 5;
+    border-radius: 8px;
+
+}
+ .character_card img {
+    o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+}
+.card_content{
+    width: 100%;
+    border-radius: 0 3px 3px 0;
+    padding: 12px;
+    position: relative;
+}
+.character_card_title {
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 100%;
+    max-height: 8vh;
+    line-height: 2.8vh;
+    text-align: center;
+    overflow: hidden;
+    color: #e3e3e3c9;
+    font-family: 'Poppins';
 }
 @media screen and (max-width: 960px){
     .item_page_container {
@@ -157,9 +261,9 @@
         padding-right:1.5rem;
     }
     .item_tabs {
-       align-items: baseline;
-       padding-top:0rem;
-       margin-top:2rem;
+        align-items: baseline;
+        padding-top:0rem;
+        margin-top:2rem;
     }
     .item_tabs p {
         font-size: 16px;
@@ -171,18 +275,19 @@
     .items {
         max-height: 70vh;
     }
-.items td {
-    flex-direction: column;
+    .videos_wrapper {
+        justify-content: center;
+    }
 }
-.items td > iframe{
-    border-radius: 10px;
+@media (max-width: 1040px){
+
+.Video_card iframe{
+    border-radius: 5px;
     border-style: unset;
     border-color: initial;
-    width: 100%;
-    height: 170px;
+    width: 295px;
+    height: 205px;
     display: flex;
 }
-
-
-
+    
 }

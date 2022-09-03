@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../../App.css';
 import '../css/Content.css';
 import mainbase from '../../data/anibase';
@@ -10,7 +10,7 @@ import LoadData from '../loadData';
 const Content = () => {
 
   const [data, setData] = useState([]);
-  const getData = (async() => { const data = await LoadData('Home');  setData(data); });
+  const getData = async() => { const data = await LoadData('Home');  setData(data); };
 
   useEffect(() => {
       getData();
