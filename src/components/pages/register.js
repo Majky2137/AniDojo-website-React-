@@ -1,10 +1,13 @@
 import React from 'react';
-import '../css/login.css';
+import '../css/login.scss';
 import { useParams } from "react-router-dom";
 import {NavLink} from 'react-router-dom';
-
+import { toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
+
+  const navigate = useNavigate();
 
   async function register(){
     let username = document.querySelectorAll('input[type=text]')[0].value;
@@ -18,7 +21,14 @@ const RegisterForm = () => {
       },
       body: `username=${username}&email=${email}&password=${password}`,
     }).then(response => response.json());
-    console.log(response);
+
+    if(response.indexOf("Success") != -1) {
+      navigate(-1);
+      toast.success ('You have been successfully registered and logged in');
+    }
+    else{
+      toast.warning ('Something went wrong');
+    }
   }
 
   async function checkAvailability(){
@@ -30,8 +40,19 @@ const RegisterForm = () => {
          "Content-Type": "application/x-www-form-urlencoded"
        },
        body: `username=${username}&email=${email}`,
-     }).then(response);
-     console.log(response);
+     }).then(response => response.text());
+     
+     toast.dismiss();
+
+    if (response.indexOf("E") > -1)
+      toast.warning("Current Email already exists in our database");
+     
+    else if (response.indexOf("U") > -1)
+      toast.warning("Current Username already exists in our database");
+     
+    else if (response.indexOf("U") > -1 && response.indexOf("E") > -1)
+      toast.warning("Current Username and Email already exists in our database");
+     
 }
 
   return(
@@ -51,7 +72,7 @@ const RegisterForm = () => {
         <div id="zal">
           <div class="logo_container">
             <NavLink to="/" className='logo'>
-            <img  src="https://i.ibb.co/b5wVJ6q/logo.png"  style={{marginRight: 10}} width="35" height="35" alt="bg" /><span style={{fontFamily: 'Poppins'}}><span style={{color:'#BE4242'}}>ANI</span>DOJO</span>
+            <img  src="https://i.ibb.co/5rn0WgX/logo.png"  style={{marginRight: 10}} width="35" height="35" alt="bg" /><span style={{fontFamily: 'Changa'}}><span style={{color:'#40F1B9'}}>ANI</span>DOJO</span>
           </NavLink>
           </div>
           <form >
@@ -83,7 +104,7 @@ const RegisterForm = () => {
                  </NavLink>
         </div>
         <footer id="stopka">
-          <p>Copyright &copy; 2022, <span style={{fontFamily: 'Poppins'}}><span style={{color:'#BE4242'}}>ANI</span>DOJO</span>, All rights reserved</p>
+          <p>Copyright &copy; 2022, <span style={{fontFamily: 'Changa'}}><span style={{color:'#40F1B9'}}>ANI</span>DOJO</span>, All rights reserved</p>
         </footer>
       </div>
     </div> 

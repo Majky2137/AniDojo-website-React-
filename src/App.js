@@ -3,6 +3,7 @@ import './App.css';
 import $ from "jquery";
 import Home from './components/pages/Home';
 import Anitem from './components/pages/Anitem';
+import Charitem from './components/pages/Character_item';
 import Search from './components/pages/Search';
 import UserProfile from './components/pages/UserProfile';
 import Item_anime_heading from './components/maincomponents/Item_anime_heading';
@@ -16,21 +17,24 @@ import RegisterForm from './components/pages/register';
 
 
 
+
 function App() {
-  const [openmodal, closeModal] = useState(false);
+
   return (
-    <Router>
+    <><Router>
       <ScrollToTop>
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='anime/:id' element={<Anitem />} />
+          <Route path='anime/:id/character/:id' element={<Charitem />} />
           <Route path='search/' element={<Search />} />
           <Route path='login/' element={<LoginForm />} />
           <Route path='register/' element={<RegisterForm />} />
           <Route path='profile/:username' element={<UserProfile />} />
+          <Route path='profile/:username/settings' element={<UserProfile />} />
         </Routes>
       </ScrollToTop>
-    </Router>
+    </Router><ToastContainer theme='dark' limit={1} toastStyle={{ backgroundColor: '#1E2029', color:'white' }} autoClose={3000} hideProgressBar/></>
  
   );
 }

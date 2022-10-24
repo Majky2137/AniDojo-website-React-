@@ -1,129 +1,74 @@
 import React, {Component} from 'react';
 import '../App.css';
-import '../components/css/userlist.css';
+import '../components/css/userlist.scss';
 import { Link } from 'react-router-dom';
-import { useState, useEffect} from "react";
+import { useState, useEffect, useLocation} from "react";
 import ScrollToTop from '../scrolltop';
 import LoadData from '.././components/loadData';
-import { Fav_button } from './list_buttons';
+import { Fav_button, Spin_button } from './list_buttons';
 
 
-const UserList = () => {
+const UserList = (table) => {
 
     const [userAnimeEntries, setUserAnimeEntries] = useState([]);
+    const [useThis, setUseThis] = useState([]);
 
+    const profileID = table.profileID;
 
+    const getUserAnimeEntries = async() => { const userAnimeEntries = await LoadData('UserAnimeEntries', profileID);  setUserAnimeEntries(userAnimeEntries); };
 
-    const getUserAnimeEntries = async() => { const userAnimeEntries = await LoadData('UserAnimeEntries');  setUserAnimeEntries(userAnimeEntries); };
-
- 
+    
     useEffect(() => {  
-       if(userAnimeEntries.length === 0) getUserAnimeEntries();
-    }, []);
-
+        if(profileID != null){
+            if(userAnimeEntries.length === 0) getUserAnimeEntries();
+            setUseThis(table.titleone === "Favorites" ? table.data.favourites : userAnimeEntries);
+        }
+    }, [table]);
 
     return(
-        <><div className='userlist_wrapper'>
+        <>
         <div className='type_header'>
-            <p>Watching</p>
+            <p>{table.titleone}</p>
         </div><div className='card_position_results'>
-                {userAnimeEntries.map((item) => {
-                    return item.status === "Watching" ? 
-                        <div className='card_position_cont' key={item.id} to={`../anime/${item.id}`} state={item.status === "Watching"}>
-                            <div className='card_position'>
+                {useThis?.map((item) => {
+                    if (item.status === table.titleone) return(
+                        <div className='card_position_cont' key={item.id} state={item.status === table.titleone}>
+                            <Link className='card_position' to={`../anime/${item.id}`}>
                                 <div className='overlay_gray '></div>
                                 <img src={item.cover} alt="cannot display" />
-                            </div>
+                                    <div className='btn_editor_cont'>
+                                </div>
+                            </Link>
                             <div className='card_position_title'>
                                 <Link style={{ textDecoration: 'none' }} key={item.id} to={`../anime/${item.id}`}>
                                 <p>{item.title}</p> 
                                 </Link>
                             </div>
                         </div>
-                        : null;
+                    );
+                  
+               if (table.titleone === "Favorites") return(
+                <>
+                 <div className='card_position_cont' key={item.anime_id} >
+                <Link className='card_position' to={`../anime/${item.anime_id}`}>
+                    <div className='overlay_gray '></div>
+                    <img src={item.cover} alt="cannot display" />
+                </Link>
+                <div className='card_position_title'>
+                    <Link style={{ textDecoration: 'none' }} key={item.anime_id} to={`/anime/${item.anime_id}`}>
+                        <p>{item.title}</p> 
+                    </Link>
+                </div>
+                </div>
+                </>
+                );
+                
+                
+                
                 })}
             </div>
-
-            <div className='type_header'>
-            <p>Completed</p>
-        </div><div className='card_position_results'>
-                {userAnimeEntries.map((item) => {
-                    return item.status === "Completed" ? 
-                        <div className='card_position_cont' key={item.id} to={`../anime/${item.id}`} state={item.status === "Completed"}>
-                            <div className='card_position'>
-                                <div className='overlay_gray '></div>
-                                <img src={item.cover} alt="cannot display" />
-                            </div>
-                            <div className='card_position_title'>
-                                <Link style={{ textDecoration: 'none' }} key={item.id} to={`../anime/${item.id}`}>
-                                <p>{item.title}</p> 
-                                </Link>
-                            </div>
-                        </div>  
-                    : null;
-                })}
-            </div>
-            
-            <div className='type_header'>
-            <p>Dropped</p>
-        </div><div className='card_position_results'>
-                {userAnimeEntries.map((item) => {
-                   return item.status === "Dropped" ? 
-                        <div className='card_position_cont' key={item.id} to={`../anime/${item.id}`} state={item.status === "Dropped"}>
-                            <div className='card_position'>
-                                <div className='overlay_gray '></div>
-                                <img src={item.cover} alt="cannot display" />
-                            </div>
-                            <div className='card_position_title'>
-                                <Link style={{ textDecoration: 'none' }} key={item.id} to={`../anime/${item.id}`}>
-                                <p>{item.title}</p> 
-                                </Link>
-                            </div>
-                        </div>
-                : null;
-                })}
-            </div>
-
-            <div className='type_header'>
-            <p>Planning</p>
-        </div><div className='card_position_results'>
-                {userAnimeEntries.map((item) => {
-                    return item.status === "Planning" ? 
-                        <div className='card_position_cont' key={item.id} to={`../anime/${item.id}`} state={item.status === "Planning"}>
-                            <div className='card_position'>
-                                <div className='overlay_gray '></div>
-                                <img src={item.cover} alt="cannot display" />
-                            </div>
-                            <div className='card_position_title'>
-                                <Link style={{ textDecoration: 'none' }} key={item.id} to={`../anime/${item.id}`}>
-                                <p>{item.title}</p> 
-                                </Link>
-                            </div>
-                        </div>
-                    : null;
-                })}
-            </div>
-
-            <div className='type_header'>
-            <p>Rewatching</p>
-        </div><div className='card_position_results'>
-                {userAnimeEntries.map((item) => {
-                    return item.status === "Rewatching" ? 
-                        <div className='card_position_cont' key={item.id} to={`../anime/${item.id}`} state={item.status === "Rewatching"}>
-                            <div className='card_position'>
-                                <div className='overlay_gray '></div>
-                                <img src={item.cover} alt="cannot display" />
-                            </div>
-                            <div className='card_position_title'>
-                                <Link style={{ textDecoration: 'none' }} key={item.id} to={`../anime/${item.id}`}>
-                                <p>{item.title}</p> 
-                                </Link>
-                            </div>
-                        </div>
-                    : null;
-                })}
-            </div>
-            </div></>
+       </>
     );
 }
+
 export default UserList;

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import '../css/Item_anime_main.css';
+import '../css/Item_anime_main.scss';
 import { Link } from 'react-router-dom';
 import LoadData from '../loadData';
 
 
 
-function Item_tabs() {
+function Item_tabs(props) {
 
   const [toggleState, setToggle] = useState(1);
 
@@ -20,9 +20,9 @@ function Item_tabs() {
  const [relatedEntries, setRelatedEntries] = useState([]);
  const [characters, setCharacters] = useState([]);
 
-  const getData = (async() => { const data = await LoadData('Anime', id);  setData(data); });
-  const getCharacters = (async() => { const characters = await LoadData('Characters', id);  setCharacters(characters); });
-  const getRelatedEntries = (async() => { const relatedEntries = await LoadData('Related', id);  setRelatedEntries(relatedEntries); });
+  const getData = async() => { const data = await LoadData('Anime', id);  setData(data); };
+  const getCharacters = async() => { const characters = await LoadData('Characters', id);  setCharacters(characters); };
+  const getRelatedEntries = async() => { const relatedEntries = await LoadData('Related', id);  setRelatedEntries(relatedEntries); };
 
   useEffect(() => {
       getData();
@@ -36,13 +36,13 @@ function Item_tabs() {
     <div className="item_tabs_container">
       <div className="item_tabs">
         <button className={toggleState === 1 ? "item_tabs active_tab" : "item_tabs"} onClick={() => initTab(1)}>
-          <p>Episodes</p>
+          <p>{props.tabone}</p>
         </button>
         <button className={toggleState === 2 ? "item_tabs active_tab" : "item_tabs"} onClick={() => initTab(2)}>
-        <p>Characters</p>
+        <p>{props.tabtwo}</p>
         </button>
         <button className={toggleState === 3 ? "item_tabs active_tab" : "item_tabs"} onClick={() => initTab(3)}>
-         <p>Relations</p>
+         <p>{props.tabthree}</p>
         </button>
       </div>
 
@@ -71,7 +71,7 @@ function Item_tabs() {
          {characters.map((item) => {
           return(
            <div className="character_card">
-            <Link onClick={item.characters = []} style= { {textDecoration: 'none'}} className='character_card_wrap' key={item.id} to={`../character/${item.id}`} state={item}>
+            <Link onClick={item.characters = []} style= { {textDecoration: 'none'}} className='character_card_wrap' key={item.id} to={`./character/${item.id}`} state={item}>
              <img src={item.image} alt="cover"/>
              <div className="character_card_title">{item.name}</div>
              </Link>

@@ -1,0 +1,149 @@
+
+.container {
+	width: 100%;
+	position: absolute;
+	justify-content: center;
+	align-content: center;
+	left: 0;
+}
+.item {
+	max-height: 19rem;
+	max-width: 14rem;
+	min-height: 19rem;
+	min-width: 14rem;
+	position: relative;
+	border-radius: 10px;
+	background-color: #1e2029b9;
+	margin-right: 30px;
+	img {
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		border-radius: 10px;
+		pointer-events: none;
+		box-shadow: #1E2029;
+		filter: opacity(0.7);
+	}
+}
+
+.title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 23px;
+	font-weight: 550;
+	padding-left: 16px;
+	padding-bottom: 16px;
+	z-index: 7;
+	width: 100%;
+	overflow: hidden;
+	color: #E3E3E3;
+	font-family: 'Lato', sans-serif;
+	max-height: 30%;
+	opacity: 1;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		color: #afafaf;
+	}
+}
+.carousel {
+	display: flex;
+}
+.carousel_container {
+	padding-block: 2rem;
+	display: flex;
+	width: 100%;
+	cursor: grab;
+	align-items: center;
+	overflow: hidden;
+	margin-bottom: 8rem;
+}
+.over_card {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: #1e202931;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		box-shadow: 0 0 40px #40F1B9;
+	}
+}
+.item_pv_button {
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	left: 50%;
+	background-color: transparent;
+	border: none;
+	transform: translateX(-50%) translateY(-50%);
+	box-sizing: content-box;
+	display: block;
+	width: 32px;
+	height: 44px;
+	border-radius: 50%;
+	padding: 18px 20px 18px 28px;
+	&:hover {
+		&:after {
+			content: "";
+			position: absolute;
+			z-index: 0;
+			left: 50%;
+			top: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			display: block;
+			width: 80px;
+			height: 80px;
+			background: #40F1B9;
+			border-radius: 50%;
+			cursor: pointer;
+			animation: play-pulse 1300ms ease-out infinite;
+		}
+	}
+	a {
+		padding: 0 40em;
+		margin: 0 -40em;
+	}
+	span {
+		display: block;
+		position: relative;
+		z-index: 3;
+		width: 0;
+		height: 0;
+		border-left: 32px solid white;
+		border-top: 22px solid transparent;
+		border-bottom: 22px solid transparent;
+		cursor: pointer;
+	}
+}
+@media screen and (max-width: 960px) {
+	.container {
+
+		padding-top: 0.5rem;
+	}
+	.item {
+		max-height: 14.5rem;
+		max-width: 12.5rem;
+		min-height: 14.5rem;
+		min-width: 12.5rem;
+	}
+	.title {
+		font-size: 15.5px;
+		padding-left: 8px;
+		padding-bottom: 10px;
+		max-height: 50%;
+	}
+}
+@keyframes play-pulse {
+	0% {
+		transform: translateX(-50%) translateY(-50%) translateZ(0) scale(0.8);
+		opacity: 0.7;
+	}
+	100% {
+		transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.2);
+		opacity: 0;
+	}
+}

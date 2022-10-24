@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import '../css/Content.css';
+import '../css/Content.scss';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import { Link } from 'react-router-dom';

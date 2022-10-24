@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../App.css';
-import '../css/Anilist.css';
+import '../css/Anilist.scss';
 import mainbase from '../../data/anibase';
 import manga_base from '../../data/mangabase';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,8 @@ import ScrollToTop from '../../scrolltop';
 import LoadData from '../loadData';
 import NavBar from './navbar';
 import Select from 'react-select';
+import { SlideShow } from './Slideshow';
+import Modal from '../modal';
 
 const Anilist = () => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -21,9 +23,10 @@ const Anilist = () => {
     const [useThis, setUseThis] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
     const [options, setOptions] = useState([{}]);
-
+    const [openmodal, setModal] = useState(false);
+    const [animeID, setAnimeID] = useState(0);
     let options2 = [{}];
-
+    
     const getTrending = async() => { const trending = await LoadData('Search');  setTrending(trending); setUseThis(trending); };
     const getGenres = async() => { const genres = await LoadData('Genres');  setGenres(genres); };
     const getPopularSeasonal = async() => { const popularSeasonal = await LoadData('Search2');  setPopularSeasonal(popularSeasonal); };
@@ -31,7 +34,8 @@ const Anilist = () => {
     const getPopularNextSeason = async() => { const popularNextSeason = await LoadData('Search4');  setPopularNextSeason(popularNextSeason); };
     const getSearchedAnime = async() => { const searchedAnime = await LoadData('Searched', null, searchTerm);  setSearchedAnime(searchedAnime); };
     const getOptions = () => {genres.forEach((genre) => { return options2.push([{'value' : genre.id, 'label' : genre.genre}]); })};
- 
+    const restartModal = () => { setModal(false); setAnimeID(0); setModal(true);};
+
     useEffect(() => {  
         if(genres.length === 0) getGenres();
         if(trending.length === 0) getTrending();
@@ -58,25 +62,23 @@ const Anilist = () => {
     return (
         <><NavBar />
         <div className='wrapper' onLoad={getOptions(genres)}>
-            <div className='search_container_card'>
-                 
-            </div>
+                 <SlideShow/>
             <div className='main_container'>
             <div className='search_box'> 
          
-                <input type="search " name="ani_search" placeholder='Search for a specific anime' onChange={event => {setSearchTerm(event.target.value)}}></input> 
-                <select>
+                <input className='input_inner' type="search " name="ani_search" placeholder='Search for a specific anime' onChange={event => {setSearchTerm(event.target.value)}}></input> 
+                <select className='input_inner'>
                     {genres.map((item) => (
                     <option onChange={event => {setSearchTerm(event.target.value)}}>
                       {item.genre}
                     </option>
                     ))}
                     </select>
-                <input type="search " name="ani_search" placeholder='Any'></input>  
-                <input type="search " name="ani_search" placeholder='Any'></input>  
-                <input type="search " name="ani_search" placeholder='Any'></input>  
-                <input type="search " name="ani_search" placeholder='Any'></input>   
-                <input type="search " name="ani_search" placeholder='Any'></input>   
+                <input className='input_inner' type="search " name="ani_search" placeholder='Any'></input>  
+                <input className='input_inner' type="search " name="ani_search" placeholder='Any'></input>  
+                <input className='input_inner' type="search " name="ani_search" placeholder='Any'></input>  
+                <input className='input_inner' type="search " name="ani_search" placeholder='Any'></input>   
+                <input className='input_inner' type="search " name="ani_search" placeholder='Any'></input>   
                 </div> 
 
             <div className='section_header'>
@@ -86,15 +88,21 @@ const Anilist = () => {
             <div className='anime'>
                 { useThis.map((item) => {
                     return(
-                        <Link style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
-                        <div className='card-anime'>   
-                    <div className='overlay_gray '></div>
-                    <img src={item.cover} alt="cannot display"/>
+                        <div style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
+                        <div className='card-anime'> 
+                            <div className='rating_views_info'> 
+                         <p> <i  class="fa-solid fa-star" > 8.2 </i></p>
+                            </div>  
+                            <div style={{paddingRight:0, width:'50%',zIndex:999, position:'absolute', justifyContent:'flex-start'}} className='btn_editor_cont'>
+                                <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{restartModal(); setAnimeID(item.id); setModal(true)}}></i>
+                            </div>
+                        <Link key={item.id} to={`../anime/${item.id}`} state={item} className='titleAnime'>
+                            <p >{item.title}</p>
+                        </Link>
+                    <Link className='overlay_gray' key={item.id} to={`../anime/${item.id}`} state={item}></Link>
+                        <img src={item.cover} alt="cannot display"/>
                     </div>
-                    <div className='titleAnime'>
-                    <p >{item.title}</p>
-                    </div>
-                    </Link>   
+                    </div>   
                
                     );
                      })}
@@ -108,15 +116,21 @@ const Anilist = () => {
             <div className='anime'>
               {popularSeasonal.map((item) => {
                     return(
-                        <Link style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
-                        <div className='card-anime'>   
-                    <div className='overlay_gray'></div>
-                    <img src={item.cover} alt="cannot display"/>
+                        <div style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
+                        <div className='card-anime'> 
+                            <div className='rating_views_info'> 
+                         <p> <i  class="fa-solid fa-star" > 8.2 </i></p>
+                            </div>  
+                            <div style={{paddingRight:0, width:'50%',zIndex:999, position:'absolute', justifyContent:'flex-start'}} className='btn_editor_cont'>
+                                <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{restartModal(); setAnimeID(item.id); setModal(true)}}></i>
+                            </div>
+                        <Link key={item.id} to={`../anime/${item.id}`} state={item} className='titleAnime'>
+                            <p >{item.title}</p>
+                        </Link>
+                    <Link className='overlay_gray' key={item.id} to={`../anime/${item.id}`} state={item}></Link>
+                        <img src={item.cover} alt="cannot display"/>
                     </div>
-                    <div className='titleAnime'>
-                    <p >{item.title}</p>
                     </div>
-                    </Link>   
                
                     );
                      })}
@@ -130,15 +144,21 @@ const Anilist = () => {
             <div className='anime'>
               {popularNextSeason.map((item) => {
                     return(
-                        <Link style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
-                        <div className='card-anime'>   
-                    <div className='overlay_gray'></div>
-                    <img src={item.cover} alt="cannot display"/>
+                        <div style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
+                        <div className='card-anime'> 
+                            <div className='rating_views_info'> 
+                         <p> <i  class="fa-solid fa-star" > 8.2 </i></p>
+                            </div>  
+                            <div style={{paddingRight:0, width:'50%',zIndex:999, position:'absolute', justifyContent:'flex-start'}} className='btn_editor_cont'>
+                                <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{restartModal(); setAnimeID(item.id); setModal(true)}}></i>
+                            </div>
+                        <Link key={item.id} to={`../anime/${item.id}`} state={item} className='titleAnime'>
+                            <p >{item.title}</p>
+                        </Link>
+                    <Link className='overlay_gray' key={item.id} to={`../anime/${item.id}`} state={item}></Link>
+                        <img src={item.cover} alt="cannot display"/>
                     </div>
-                    <div className='titleAnime'>
-                    <p >{item.title}</p>
-                    </div>
-                    </Link>   
+                    </div>  
                
                     );
                      })}
@@ -152,21 +172,28 @@ const Anilist = () => {
             <div className='anime'>
               {mostPopular.map((item) => {
                     return(
-                        <Link style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
-                        <div className='card-anime'>   
-                    <div className='overlay_gray'></div>
-                    <img src={item.cover} alt="cannot display"/>
+                        <div style= { {textDecoration: 'none'}} className='card-cont' key={item.id} to={`../anime/${item.id}`} state={item}>   
+                        <div className='card-anime'> 
+                            <div className='rating_views_info'> 
+                         <p> <i  class="fa-solid fa-star" > 8.2 </i></p>
+                            </div>  
+                            <div style={{paddingRight:0, width:'50%',zIndex:999, position:'absolute', justifyContent:'flex-start'}} className='btn_editor_cont'>
+                                <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{restartModal(); setAnimeID(item.id); setModal(true)}}></i>
+                            </div>
+                        <Link key={item.id} to={`../anime/${item.id}`} state={item} className='titleAnime'>
+                            <p >{item.title}</p>
+                        </Link>
+                    <Link className='overlay_gray' key={item.id} to={`../anime/${item.id}`} state={item}></Link>
+                        <img src={item.cover} alt="cannot display"/>
                     </div>
-                    <div className='titleAnime'>
-                    <p >{item.title}</p>
                     </div>
-                    </Link>   
-               
                     );
                      })}
             </div>
             </div>
+            {openmodal && <Modal closeModal={openmodal} anime_id={animeID}/>}
         </div>
+        
         </>
   );
 }

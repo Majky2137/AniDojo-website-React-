@@ -1,0 +1,235 @@
+.modal_wrapper {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	margin: 0;
+	z-index: 99999;
+}
+.modal {
+	display: flex;
+	position: fixed;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: 99999;
+}
+.scroll {
+	overflow: scroll;
+}
+.no-scroll {
+	overflow: hidden;
+}
+.modal_content {
+	color: #fff;
+	font-size: 1.3rem;
+	line-height: normal;
+	height: auto;
+	width: 1000px;
+	background-color: #292929;
+	animation: scale 0.5s ease;
+	border-radius: 10px;
+	box-shadow: 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.02), 22.3px 22.3px 17.9px rgba(0, 0, 0, 0.03), 100px 100px 80px rgba(0, 0, 0, 0.05);
+}
+.modal_header {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	height: 205px;
+	background-color: #2c2c2c;
+	position: relative;
+	img {
+		background-position: 50%;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+}
+.modal_header_content {
+	align-items: flex-end;
+	display: flex;
+	height: 100%;
+	padding: 20px;
+	padding-bottom: 0;
+	position: relative;
+	justify-content: space-between;
+	z-index: 10;
+}
+.modal_header_title {
+	color: #E3E3E3;
+	font-size: 15px;
+	padding: 20px;
+	font-family: 'Changa', sans-serif;
+}
+.modal_header_btns {
+	align-items: center;
+	display: flex;
+	height: 70px;
+	justify-content: center;
+	padding-left: 1px;
+	transition: .2s;
+	padding: 0 14px;
+}
+.modal_body {
+	display: grid;
+	grid-gap: 50px;
+	grid-template-columns: auto 160px;
+	padding: 50px;
+	padding-top: 70px;
+}
+.modal_inputs_wrapper {
+	display: grid;
+	grid-gap: 40px;
+	grid-template-areas: "status rating activ_progress" "started finish rewatches" "notes notes notes" "advanced advanced advanced";
+	justify-content: space-around;
+}
+.stat {
+	box-shadow: 0px 0px 7px 1px rgb(85, 85, 85);
+}
+.modal_form {
+	.status {
+		grid-area: status;
+		margin-bottom: 25px;
+	}
+	.rating {
+		grid-area: rating;
+		margin-bottom: 25px;
+	}
+	.activ_progress {
+		grid-area: activ_progress;
+		margin-bottom: 25px;
+	}
+	.start {
+		grid-area: started;
+		margin-bottom: 25px;
+	}
+	.finish {
+		grid-area: finish;
+		margin-bottom: 25px;
+	}
+	.rewatches {
+		grid-area: rewatches;
+		margin-bottom: 25px;
+	}
+}
+.modal_input_title {
+	color: #999999;
+	font-size: 13px;
+	padding-bottom: 8px;
+	padding-left: 1px;
+}
+.close_modal {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	padding: 0;
+	background: 0 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 16px;
+	z-index: 9999;
+}
+.btn_save {
+	padding: 0.7rem 1rem;
+	height: 40px;
+	display: block;
+	border: 0;
+	border-radius: 5px;
+	font-weight: 500;
+	background: #dc3545;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.5s;
+	margin-left: 10px;
+	&:hover {
+		background-color: #8a7c7d;
+	}
+}
+.btn_editor_cont {
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+.openEditor_btn {
+	display: flex;
+	padding-left: 1.5px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.425);
+	color: rgb(180, 180, 180);
+	font-size: 18px;
+	border: none;
+	justify-content: center;
+	height: 30px;
+	width: 30px;
+	align-items: center;
+	transition: all .3s ease-in-out;
+	letter-spacing: 2px;
+	padding-bottom:0;
+	transform: rotate(-1turn);
+	&:hover {
+		color: #fff;
+		cursor: pointer;
+		background-color: rgb(37, 37, 37);
+		box-shadow: 0px 0px 5px 7px rgb(85, 85, 85);
+	}
+}
+.area_input {
+	cursor: pointer;
+	font-weight: 400;
+	font-family: 'Changa', sans-serif;
+	transition: all .2s;
+	padding: 10px 20px;
+	max-height: 40px;
+	width: 100%;
+	color: #fff;
+	border-radius: 5px;
+	background: #26262b;
+	border: 1px solid transparent;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+@media (max-width: 1040px) {
+	.modal_inputs_wrapper {
+		display: block;
+	}
+	.area_input {
+		margin-bottom: 25px;
+	}
+}
+@media screen and (max-width: 760px) {
+	.modal_body {
+		display: block;
+		padding: 30px;
+		padding-top: 70px;
+		z-index: 999;
+	}
+}
+@keyframes scale {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+@keyframes scaleDown {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0);
+	}
+}

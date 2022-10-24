@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import '../../App.css';
-import '../css/Item_anime.css';
+import '../css/Item_anime.scss';
 import {Fav_button, Change_Status}from '.././list_buttons';
 import NavBar from './navbar';
 import ModalVideo from 'react-modal-video'
@@ -12,17 +12,18 @@ import manga_base from '../../data/mangabase';
 import Home from '../pages/Home';
 import LoadData from '../loadData';
 import Modal from '.././modal';
+import ScrollToTop from '../../scrolltop';
 
 
 const Item_anime_heading = () =>  {
-  const [openmodal, setModal] = useState(false);
 
+  const [openmodal, setModal] = useState(false);
   const { id } = useParams();
   const [open, setOpen] = useState(false);
-  
-  
   const [data, setData] = useState([]);
   const getData = async() => { const data = await LoadData('AnimeID', id); setData(data[0]); };
+
+
   
     useEffect(() => {
         getData();
@@ -31,6 +32,7 @@ const Item_anime_heading = () =>  {
   if(data != null && data !== [] && data.pv){
 
   return (
+    <ScrollToTop>
       <div className='item_container'>
         <div className='item_back_cont'/>
           <div className='overlay2'/>
@@ -44,12 +46,9 @@ const Item_anime_heading = () =>  {
                   <button onClick={()=> setOpen(true)} class="item_pv_button" >
                   <span></span>
                   </button>
-
                   <div className='btn_editor_cont'>
                   <i className='fa-solid fa-gear openEditor_btn' onClick={ () =>{setModal(true)}}></i>
                   </div>
-
-                  
                   </div>
                   <img src={data.cover} alt="bg"></img>
               </div>
@@ -96,9 +95,6 @@ const Item_anime_heading = () =>  {
             
               <div className='item_right_content'>
                 <div className='item_fan_quotes'>
-                  <h1>Favorite Quote</h1>
-                  <p>"I Don't Know How I'll Feel When I'm Dead, But I Don't Want To Regret The Way I Lived."</p>
-                  <br></br>
                   <h1>Age Clasification:</h1>
                   <p>18+</p>
                 </div>
@@ -115,11 +111,11 @@ const Item_anime_heading = () =>  {
       
     </div>
   
-    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={ data.pv.split("/")[4] } onClose={() => setOpen(false)} />
-    {openmodal && <Modal closeModal={setModal} />}
+    <ModalVideo  channel='youtube' autoplay isOpen={open} videoId={ data.pv } onClose={() => setOpen(false)} />
+    {openmodal && <Modal closeModal={openmodal} anime_id={id}/>}
   </div>
 
-
+</ScrollToTop>
   )
 }
 }

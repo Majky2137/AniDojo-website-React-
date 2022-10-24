@@ -1,29 +1,27 @@
 .userlist_wrapper{
     position: relative;
-    display:flex;
-    font-family: 'Poppins';
+    font-family: 'Changa', sans-serif;
     flex-direction: column;
     margin: 0 auto;
     min-width: 320px;
     width: 100%;
     justify-content: center;
-    height: auto; 
+    height: 100%;
+    padding:20px;
+    padding-top:0px;
 }
 .card_position_results {
+    position: relative;
+    border-radius: 8px;
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: repeat(auto-fill,135px);
-    grid-template-rows: repeat(auto-fill,235px);
-    min-width: 0;
+    grid-template-columns: repeat(auto-fill, 145px);
+    justify-content: space-around;
+    overflow: hidden;
     width: 100%;
-    padding-bottom:40px;
 }
-.card_position_cont{
-    display: grid;
-    grid-template-rows: -webkit-min-content auto;
-    grid-template-rows: min-content auto;
-    position: relative;
-    width: 150px;
+.card_position_cont {
+    margin-bottom: 30px;
 }
 .card_position {
     border-radius: 4px;
@@ -51,7 +49,7 @@
     color: #E3E3E3;
     display: block;
     font-size: 1.17em;
-    margin-block-start: 1em;
+
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -60,13 +58,15 @@
 .card_position_title {
     justify-content: space-between;
     font-size: 1.1rem;
-    font-family: 'Poppins';
+    font-family: 'Changa', sans-serif;
     font-weight: 600;
     line-height: 21px;
     min-height: 42px;
     max-height: 42px;
     margin-top: 10px;
     overflow: hidden;
+    word-break: break-word;
+    text-overflow: ellipsis;
     display: flex;
     color: #E3E3E3;
     -webkit-box-orient: vertical;
@@ -78,6 +78,6 @@
     transition: all 0.3s ease-in-out;
 }
 .card_position_title p:hover {
-    color:#BE4242;
+    color:#40F1B9;
     
 }

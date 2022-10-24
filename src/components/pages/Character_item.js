@@ -1,22 +1,22 @@
 import React from 'react';
 import '../../App.css'
-import Item_anime_heading from '../maincomponents/Item_anime_heading';
-import Item_anime_main from '../maincomponents/Item_anime_main';
 import Footer from '../maincomponents/Footer';
 import { useParams } from "react-router-dom";
 import ScrollToTop from '../../scrolltop';
+import Char_content from '../maincomponents/Char_content';
 
 
-function Anitem() {
+function Charitem() {
+  document.body.style.overflow = "scroll"
+  document.body.style.overflowX = "hidden"
   return (
       <>
       <ScrollToTop>
-      <Item_anime_heading/>
-      <Item_anime_main/>
+      <Char_content/>
       <Footer/>
       </ScrollToTop>
       </>
   );
 }
 
-export default Anitem;
+export default Charitem;

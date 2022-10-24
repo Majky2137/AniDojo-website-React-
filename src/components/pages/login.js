@@ -1,11 +1,12 @@
 import React from 'react';
-import '../css/login.css';
+import '../css/login.scss';
 import {Link, NavLink} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function login(){
     let login = document.querySelectorAll('input[type=text]')[0].value;
@@ -19,8 +20,13 @@ const LoginForm = () => {
       body: `login=${login}&password=${password}`,
     }).then(response => response.json());
 
-    if(response.indexOf("Welcome") != -1)
+    if(response.indexOf("Success") != -1) {
       navigate(-1);
+      toast.success ('You have been successfully logged in');
+    }
+    else{
+      toast.warning ('Incorrect Login or Password');
+    }
   }
 
   return(
@@ -40,7 +46,7 @@ const LoginForm = () => {
         <div id="zal">
         <div class="logo_container">
             <NavLink to="/" className='logo'>
-            <img  src="https://i.ibb.co/b5wVJ6q/logo.png"  style={{marginRight: 10}} width="35" height="35" alt="bg" /><span style={{fontFamily: 'Poppins'}}><span style={{color:'#BE4242'}}>ANI</span>DOJO</span>
+            <img  src="https://i.ibb.co/5rn0WgX/logo.png"  style={{marginRight: 10}} width="35" height="35" alt="bg" /><span style={{fontFamily: 'Changa'}}><span style={{color:'#40F1B9'}}>ANI</span>DOJO</span>
           </NavLink>
           </div>
           <form >
@@ -67,7 +73,7 @@ const LoginForm = () => {
                  </NavLink>
         </div>
         <footer id="stopka">
-          <p>Copyright &copy; 2022, <span style={{fontFamily: 'Poppins'}}><span style={{color:'#BE4242'}}>ANI</span>DOJO</span>, All rights reserved</p>
+          <p>Copyright &copy; 2022, <span style={{fontFamily: 'Changa'}}><span style={{color:'#40F1B9'}}>ANI</span>DOJO</span>, All rights reserved</p>
         </footer>
       </div>
     </div> 
